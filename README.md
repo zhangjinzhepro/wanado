@@ -145,13 +145,13 @@ $z.$isObject('123')
 数组或对象的拷贝
 
 ```
-$z.$isObject(obj, params)
+$z.$objectCopy(obj, params)
 // obj: Array || Object
 // params: 'deep' || 'shallow' 
 
-$z.$isObject({a:1,b:2,c:3}) // 浅拷贝
+$z.$objectCopy({a:1,b:2,c:3}) // 浅拷贝
 // {a:1,b:2,c:3} 默认浅拷贝
 
-$z.$isObject({a:1,b:2,c:{a: function(){}}}, 'deep') //深拷贝
+$z.$objectCopy({a:1,b:2,c:{a: function(){}}}, 'deep') //深拷贝
 // {a:1,b:2,c:{a: function(){}}}
 ```
