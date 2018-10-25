@@ -1,11 +1,16 @@
 {
   "name": "z-formatter",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "一个简单js工具库",
   "main": "entry/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "jzenzhang@163.con",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "flow-bin": "^0.83.0"
+  }
 }
