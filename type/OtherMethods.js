@@ -10,7 +10,7 @@ const $isNumber = function (val) {
 }
 const $isArray = function (val) {
   var type = Object.prototype.toString.call(val)
-  return type.substring(8, 14) === 'Array' ? true : false
+  return type.substring(8, 13) === 'Array' ? true : false
 }
 const $isBoolean = function (val) {
   var type = Object.prototype.toString.call(val)
@@ -18,7 +18,7 @@ const $isBoolean = function (val) {
 }
 const $isFunction = function (val) {
   var type = Object.prototype.toString.call(val)
-  return type.substring(8, 14) === 'Function' ? true : false
+  return type.substring(8, 16) === 'Function' ? true : false
 }
 const $isObject = function (val) {
   var type = Object.prototype.toString.call(val)

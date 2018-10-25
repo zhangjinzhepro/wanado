@@ -1,6 +1,6 @@
 import {$isObject} from './OtherMethods'
 
-// 数组和对象的深拷贝浅拷贝
+// 数组和对象的拷贝
 const $objectCopy = function (val, type = 'shallow') {
   if (type === 'deep') {
     var newObj = $isObject(val) ? {} : []
