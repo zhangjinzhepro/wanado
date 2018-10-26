@@ -156,4 +156,78 @@ $z.$objectCopy({a:1,b:2,c:{a: function(){}}}, 'deep') //深拷贝
 // {a:1,b:2,c:{a: function(){}}}
 ```
 
+> ### `$setCookie`
+
+设置cookie
+
+```js
+$z.$setCookie(key, val, time)
+// key: String
+// val: 任意类型
+// time: 保存时间（一小时为单位）
+
+$z.$setCookie('name','zhang')
+// key: 'name' value: 'zhang'
+
+$z.$setCookie('data',{a:1,b:2},3)
+// key: 'data' value: [{'a':1,'b':2}] 
+```
+
+> ### `$getCookie`
+
+获取cookie
+
+```js
+$z.$getCookie(key)
+// key: String
+
+$z.$getCookie('name')
+// 'zhang'
+
+$z.$getCookie('data')
+// {a:1,b:2}
+```
+
+> ### `$isEmail`
+
+表单验证邮箱
+
+```js
+$z.$isEmail(val)
+// val: String
+
+$z.$isEmail('123@qq.com')
+// true
+
+$z.$isEmail('zhang@zhangan.cn')
+// true
+```
+
+> ### `$isPhone`
+
+表单验证手机号
+
+```js
+$z.$isPhone(val)
+// val: String || Number
+
+$z.$isPhone('13233333333')
+// true
+
+$z.$isPhone('18623456543')
+// true
+```
+
+> ### `$simplify`
+
+数组去重
+
+```js
+$z.$simplify(arr)
+// val: Array
+
+$z.$simplify([1,2,3,2,3,2,4,5,6])
+// [1,2,3,4,5,6]
+```
+
 更多功能陆续添加中...

@@ -1,7 +1,8 @@
-import * as string from 'z-formatter/type/StringMethods'
-import * as number from 'z-formatter/type/NumberMethods'
-import * as object from 'z-formatter/type/ObjectMethods'
+import * as string from '../type/StringMethods'
+import * as number from '../type/NumberMethods'
+import * as object from '../type/ObjectMethods'
 import * as other from '../type/OtherMethods'
+import * as array from '../type/ArrayMethods'
 let $z = {}
 
 for (const key in string) {
@@ -15,6 +16,9 @@ for (const key in object) {
 }
 for (const key in other) {
   $z[key] = other[key];
+}
+for (const key in array) {
+  $z[key] = array[key];
 }
 
 export default $z

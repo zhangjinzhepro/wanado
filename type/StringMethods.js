@@ -1,6 +1,6 @@
-// 日期格式化
+// 日期格式化  --start
 const $toDate = function (val = new Date(), format = 'YY/MM/DD') {
-  var date = new Date(Number(val))
+  var date = new Date(val)
   var year = date.getFullYear()
   var month = date.getMonth() + 1
   var day = date.getDate()
@@ -9,15 +9,20 @@ const $toDate = function (val = new Date(), format = 'YY/MM/DD') {
   var sec = date.getSeconds()
   if (month < 10) {
     month = '0' + month
-  } else if (day < 10) {
+  }
+  if (day < 10) {
     day = '0' + day
-  } else if (hour < 10) {
+  }
+  if (hour < 10) {
     hour = '0' + hour
-  } else if (hour < 10) {
+  }
+  if (hour < 10) {
     hour = '0' + hour
-  } else if (min < 10) {
+  }
+  if (min < 10) {
     min = '0' + min
-  } else if (sec < 10) {
+  }
+  if (sec < 10) {
     sec = '0' + sec
   }
   if (format === 'YY/MM/DD hh:mm:ss') {
@@ -28,6 +33,21 @@ const $toDate = function (val = new Date(), format = 'YY/MM/DD') {
     return new Error('参数错误')
   }
 }
+// --end
+
+// 一些表单验证规则
+const $isEmail = function (val) { 
+  var rule = /\w{1,}@\w{1,}\.[A-z]/
+  return rule.test(val)
+}
+
+const $isPhone = function (val) {
+  var rule = /1[\d]{10}/
+  return rule.test(val)
+}
+
 export {
-  $toDate
+  $toDate,
+  $isEmail,
+  $isPhone
 }
