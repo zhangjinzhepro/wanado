@@ -1,5 +1,5 @@
 // 日期格式化  --start
-const toDate = function (val = new Date(), format = 'YY/MM/DD') {
+const toDate = function (val = new Date(), format = 'YY-MM-DD') {
   var date = new Date(val)
   var year = date.getFullYear()
   var month = date.getMonth() + 1
@@ -25,10 +25,10 @@ const toDate = function (val = new Date(), format = 'YY/MM/DD') {
   if (sec < 10) {
     sec = '0' + sec
   }
-  if (format === 'YY/MM/DD hh:mm:ss') {
-    return `{year}/{month}/{day} {hour}:{min}:{sec}`
-  } else if (format === 'YY/MM/DD') {
-    return `{year}/{month}/{day}`
+  if (format === 'YY-MM-DD hh:mm:ss') {
+    return `{year}-{month}-{day} {hour}:{min}:{sec}`
+  } else if (format === 'YY-MM-DD') {
+    return `{year}-{month}-{day}`
   } else {
     return new Error('参数错误')
   }
