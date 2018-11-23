@@ -10,6 +10,50 @@
 ### 引用
 `import $z from 'z-formatter'`
 
+# 索引
+
+## 1.  类型判断
+
+  [isString](#-isString)
+
+  [isNumber](#-isNumber)
+
+  [isArray](#-isArray)
+
+  [isBoolean](#-isBoolean)
+
+  [isFunction](#-isFunction)
+
+  [isObject](#-isObject)
+
+## 2. 一般字符串操作
+
+  [时间格式化](#-toDate)
+
+  [cookie设置](#-setCookie)
+
+  [cookie获取](#-getCookie)
+
+## 3. 一般对象操作
+
+  [对象的深浅拷贝](#-objectCopy)
+
+  [对象的合并](#-objectMerge)
+
+## 4. 一般数组操作
+
+  [数组去重](#-simplify)
+
+  [数组添加](#-append)
+
+  [数组删除](#-remove)
+
+## 5. 正则验证
+
+  [邮箱](#-isEmail)
+
+  [手机号码](#-isPhone)
+
 # 文档
 
 > ### `isString`
@@ -160,7 +204,7 @@ $z.objectCopy({a: 1, b: 2, c: {a: function(){}}}, 'deep') //深拷贝
 
 > ### `objectMerge`
 
-合并数组并返回一个合并后的数组
+合并对象并返回一个合并后的对象
 
 ```js
 $z.objectMerge(obj1, obj2)
