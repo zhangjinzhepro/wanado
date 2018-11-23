@@ -1,4 +1,4 @@
-const return1 =  function (val) {
+const return1 = (val) => {
   return val
 }
 export {

@@ -1,5 +1,5 @@
 // 日期格式化  --start
-const toDate = function (val = new Date(), format = 'YY-MM-DD') {
+const toDate = (val = new Date(), format = 'YY-MM-DD') => {
   var date = new Date(val)
   var year = date.getFullYear()
   var month = date.getMonth() + 1
@@ -36,12 +36,12 @@ const toDate = function (val = new Date(), format = 'YY-MM-DD') {
 // --end
 
 // 一些表单验证规则
-const isEmail = function (val) {
+const isEmail = (val) => {
   var rule = /\w{1,}@\w{1,}\.[A-z]/
   return rule.test(val)
 }
 
-const isPhone = function (val) {
+const isPhone = (val) => {
   var rule = /1[\d]{10}/
   return rule.test(val)
 }

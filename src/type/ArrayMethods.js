@@ -1,5 +1,5 @@
 // 数组去重 --start
-const simplify = function (arr) {
+const simplify = (arr) => {
   return Array.from(new Set(arr));
 }
 // --end
