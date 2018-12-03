@@ -207,18 +207,14 @@ $z.objectCopy({a: 1, b: 2, c: {a: function(){}}}, 'deep') //深拷贝
 合并对象并返回一个合并后的对象
 
 ```js
-$z.objectMerge(obj1, obj2)
-// obj: Object || Array
-
-$z.objectMerge({a: 1, b: 2, c: 3},{d: 4, e: 5})
-// {a: 1, b: 2, c: 3, d: 4, e: 5}
+$z.objectMerge(obj,obj2...)
+// obj: Object
 
 var a = {a: 1, b: 2}
 var b = {c: 2, d: 4}
 var c = {e: 5, f: 6}
+
 $z.objectMerge(a,b,c)
-// Error!!! 两个以上对象合并请使用数组
-$z.objectMerge([a,b,c])
 // {a: 1, b: 2, c: 2, d: 4, e: 5, f: 6}
 ```
 

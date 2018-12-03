@@ -1,19 +1,24 @@
 {
   "name": "z-formatter",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "一个简单js工具库",
   "main": "bin/index.js",
   "bin": "bin/index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "test": "jest"
   },
   "author": "jzenzhang@163.com",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-0": "^6.24.1"
-  }
+    "babel-preset-stage-0": "^6.24.1",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.13.1"
+  },
+  "dependencies": {}
 }

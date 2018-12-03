@@ -24,22 +24,17 @@ const objectCopy = (val, type = 'shallow') => {
 }
 // --end
 
-const objectMerge = (params1, params2, params3) => {
-  if (params2 === 'undefined' || params2 === undefined) {
-    if (isArray(params1)) {
-      var obj = params1.reduce((a, b)=>{
-        return Object.assign({},a,b)
-      })
-      return obj
-    } else {
-      return new Error("请使用数组。")
+// 对象合并 --start
+const objectMerge = (...obj) => {
+  let arr = [...obj]
+  arr.forEach((ele) => {
+    if(!isObject(ele)){
+      return new Error('参数错误')
     }
-  } else if (params3) {
-    return new Error("请使用数组。")
-  }else{
-    return Object.assign({},params1,params2)
-  }
-
+  })
+  return arr.reduce((a, b) => {
+    return Object.assign({}, a, b)
+  })
 }
 
 export {
