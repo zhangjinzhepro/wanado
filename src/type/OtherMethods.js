@@ -1,32 +1,32 @@
 // 判断数据类型 --start
-const isString =  (val) => {
+const isString = (val) => {
   var type = Object.prototype.toString.call(val)
   return type.substring(8,14) === 'String' ? true : false
 }
-const isNumber =  (val) => {
+const isNumber = (val) => {
   var type = Object.prototype.toString.call(val)
   return type.substring(8, 14) === 'Number' ? true : false
 }
-const isArray =  (val) => {
+const isArray = (val) => {
   var type = Object.prototype.toString.call(val)
   return type.substring(8, 13) === 'Array' ? true : false
 }
-const isBoolean =  (val) => {
+const isBoolean = (val) => {
   var type = Object.prototype.toString.call(val)
   return type.substring(8, 15) === 'Boolean' ? true : false
 }
-const isFunction =  (val) => {
+const isFunction = (val) => {
   var type = Object.prototype.toString.call(val)
   return type.substring(8, 16) === 'Function' ? true : false
 }
-const isObject =  (val) => {
+const isObject = (val) => {
   var type = Object.prototype.toString.call(val)
   return type.substring(8, 14) === 'Object' ? true : false
 }
 // --end
 
 //cookie操作  --start
-const setCookie =  (key, val, time = '') => {
+const setCookie = (key, val, time = '') => {
   var max_age = time === '' ? '' : `max-age={time * 60 * 60}`
   if (typeof val === 'object') {
     val = JSON.stringify(val)
@@ -34,7 +34,7 @@ const setCookie =  (key, val, time = '') => {
   document.cookie = key + "=" + val + "; " + max_age;
 }
 
-const getCookie =  (key) => {
+const getCookie = (key) => {
   var cookieArr = document.cookie.split('; ')
   var cookieObj = {}
     for (const key in cookieArr) {

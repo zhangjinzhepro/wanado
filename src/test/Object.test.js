@@ -1,7 +1,7 @@
- import $z from '../index'
+ import {objectMerge} from '../type/ObjectMethods'
 
  test('objectMerge', () => {
-   expect($z.objectMerge({
+   expect(objectMerge({
      a: 1,
      b: 2
    }, {

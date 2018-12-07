@@ -26,9 +26,9 @@ const toDate = (val = new Date(), format = 'YY-MM-DD') => {
     sec = '0' + sec
   }
   if (format === 'YY-MM-DD hh:mm:ss') {
-    return `{year}-{month}-{day} {hour}:{min}:{sec}`
+    return `${year}-${month}-${day} ${hour}:${min}:${sec}`
   } else if (format === 'YY-MM-DD') {
-    return `{year}-{month}-{day}`
+    return `${year}-${month}-${day}`
   } else {
     return new Error('参数错误')
   }

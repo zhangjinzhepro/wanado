@@ -18,9 +18,14 @@ const remove = (arr, start, count) => {
 }
 // --end
 
+// 伪数组转换数组
+const toArray = (arr) => {
+  return Array.prototype.slice.call(arr)
+}
+
 export {
   simplify,
   append,
-  remove
-
+  remove,
+  toArray
 }
