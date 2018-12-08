@@ -1,7 +1,7 @@
 // 判断数据类型 --start
 const isString = (val) => {
   var type = Object.prototype.toString.call(val)
-  return type.substring(8,14) === 'String' ? true : false
+  return type.substring(8, 14) === 'String' ? true : false
 }
 const isNumber = (val) => {
   var type = Object.prototype.toString.call(val)
@@ -37,13 +37,13 @@ const setCookie = (key, val, time = '') => {
 const getCookie = (key) => {
   var cookieArr = document.cookie.split('; ')
   var cookieObj = {}
-    for (const key in cookieArr) {
-      if (cookieArr.hasOwnProperty(key)) {
-        var item = cookieArr[key].split('=')
-        cookieObj[item[0]] = JSON.parse(item[1])
-      }
+  for (const key in cookieArr) {
+    if (cookieArr.hasOwnProperty(key)) {
+      var item = cookieArr[key].split('=')
+      cookieObj[item[0]] = JSON.parse(item[1])
     }
-    return cookieObj[key]
+  }
+  return cookieObj[key]
 }
 // --end
 

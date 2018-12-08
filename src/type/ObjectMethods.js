@@ -28,7 +28,7 @@ const objectCopy = (val, type = 'shallow') => {
 const objectMerge = (...obj) => {
   let arr = [...obj]
   arr.forEach((ele) => {
-    if(!isObject(ele)){
+    if (!isObject(ele)) {
       return new Error('参数错误')
     }
   })
