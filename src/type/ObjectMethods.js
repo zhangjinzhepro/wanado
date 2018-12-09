@@ -36,6 +36,7 @@ const objectMerge = (...obj) => {
     return Object.assign({}, a, b)
   })
 }
+// --end
 
 export {
   objectCopy,

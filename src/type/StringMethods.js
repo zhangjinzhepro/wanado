@@ -45,6 +45,7 @@ const isPhone = (val) => {
   var rule = /1[\d]{10}/
   return rule.test(val)
 }
+// --end
 
 export {
   toDate,
