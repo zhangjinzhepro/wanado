@@ -165,6 +165,37 @@ $z.isObject('123')
 
 ```
 
+> ### `setCookie`
+
+设置cookie
+
+```js
+$z.setCookie(key, val, time)
+// key: String
+// val: any
+// time: 保存时间（一小时为单位）
+
+$z.setCookie('name','zhang')
+// key: 'name' value: 'zhang'
+
+$z.setCookie('data',{a:1,b:2},3)
+// key: 'data' value: [{'a':1,'b':2}]
+```
+
+> ### `getCookie`
+
+获取cookie
+
+```js
+$z.getCookie(key)
+// key: String
+
+$z.getCookie('name')
+// 'zhang'
+
+$z.getCookie('data')
+// {a: 1, b: 2}
+```
 
 > ### `toDate`
 
@@ -184,7 +215,6 @@ $z.toDate('2018-3-3') // 指定时间
 $z.toDate(1234567890, 'YY-MM-DD hh:mm:ss') //指定时间格式化
 // 1970-01-15 14:56:07
 ```
-
 
 > ### `objectCopy`
 
@@ -207,7 +237,7 @@ $z.objectCopy({a: 1, b: 2, c: {a: function(){}}}, 'deep') //深拷贝
 合并对象并返回一个合并后的对象
 
 ```js
-$z.objectMerge(obj,obj2...)
+$z.objectMerge(obj, obj2...)
 // obj: Object
 
 var a = {a: 1, b: 2}
@@ -216,6 +246,42 @@ var c = {e: 5, f: 6}
 
 $z.objectMerge(a,b,c)
 // {a: 1, b: 2, c: 2, d: 4, e: 5, f: 6}
+```
+
+> ### `objectGrounp`
+
+根据传入的数组和key进行数组分组
+
+```js
+$z.objectGrounp(arr, key)
+// arr: Array
+// key: String
+
+var arr = [
+  {id: 1, year: 2018},
+  {id: 2, year: 2017},
+  {id: 3, year: 2016},
+  {id: 4, year: 2017},
+  {id: 5, year: 2018},
+  {id: 6, year: 2017}
+]
+
+
+$z.objectGrounp(arr, 'year')
+// {
+//   "2016": [
+//     {"id": 3, "year": 2016}
+//   ],
+//   "2017": [
+//     {"id": 2, "year": 2017},
+//     {"id": 4, "year": 2017},
+//     {"id": 6, "year": 2017}
+//   ],
+//   "2018": [
+//     {"id": 1, "year": 2018},
+//     {"id": 5, "year": 2018}
+//   ]
+// }
 ```
 
 > ### `sort`
@@ -248,40 +314,6 @@ $z.sort(arr, 'order', 'id')
 $z.sort(arr, 'invert', 'id')
 //  {id:3,name:'zhang'}, {id:2,name:'li'}, {id:1,name: 'wang'},
 
-
-```
-
-
-> ### `setCookie`
-
-设置cookie
-
-```js
-$z.setCookie(key, val, time)
-// key: String
-// val: any
-// time: 保存时间（一小时为单位）
-
-$z.setCookie('name','zhang')
-// key: 'name' value: 'zhang'
-
-$z.setCookie('data',{a:1,b:2},3)
-// key: 'data' value: [{'a':1,'b':2}]
-```
-
-> ### `getCookie`
-
-获取cookie
-
-```js
-$z.getCookie(key)
-// key: String
-
-$z.getCookie('name')
-// 'zhang'
-
-$z.getCookie('data')
-// {a: 1, b: 2}
 ```
 
 > ### `simplify`

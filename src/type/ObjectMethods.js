@@ -1,6 +1,5 @@
 import {
   isObject,
-  isArray
 } from './OtherMethods'
 
 // 数组和对象的深拷贝浅拷贝 --start
@@ -38,7 +37,17 @@ const objectMerge = (...obj) => {
 }
 // --end
 
+// 对象分组 --start
+const objectGrounp = (arr, key) => {
+  return arr.reduce((obj, ele) => {
+    (obj[ele[key]] = obj[ele[key]] || []).push(ele)
+    return obj
+  }, {})
+}
+// --end
+
 export {
   objectCopy,
-  objectMerge
+  objectMerge,
+  objectGrounp
 }
