@@ -248,42 +248,6 @@ $z.objectMerge(a,b,c)
 // {a: 1, b: 2, c: 2, d: 4, e: 5, f: 6}
 ```
 
-> ### `objectGrounp`
-
-根据传入的数组和key进行数组分组
-
-```js
-$z.objectGrounp(arr, key)
-// arr: Array
-// key: String
-
-var arr = [
-  {id: 1, year: 2018},
-  {id: 2, year: 2017},
-  {id: 3, year: 2016},
-  {id: 4, year: 2017},
-  {id: 5, year: 2018},
-  {id: 6, year: 2017}
-]
-
-
-$z.objectGrounp(arr, 'year')
-// {
-//   "2016": [
-//     {"id": 3, "year": 2016}
-//   ],
-//   "2017": [
-//     {"id": 2, "year": 2017},
-//     {"id": 4, "year": 2017},
-//     {"id": 6, "year": 2017}
-//   ],
-//   "2018": [
-//     {"id": 1, "year": 2018},
-//     {"id": 5, "year": 2018}
-//   ]
-// }
-```
-
 > ### `sort`
 
 数组排序（支持复杂对象排序）
@@ -354,6 +318,42 @@ $z.remove(val, start, count)
 
 $z.remove([1,2,3], 2, 1)
 // [1, 2]
+```
+
+> ### `arrayGrounp`
+
+根据传入的对象数组和key进行分组
+
+```js
+$z.arrayGrounp(arr, key)
+// arr: Array
+// key: String
+
+var arr = [
+  {id: 1, year: 2018},
+  {id: 2, year: 2017},
+  {id: 3, year: 2016},
+  {id: 4, year: 2017},
+  {id: 5, year: 2018},
+  {id: 6, year: 2017}
+]
+
+
+$z.arrayGrounp(arr, 'year')
+// {
+//   "2016": [
+//     {"id": 3, "year": 2016}
+//   ],
+//   "2017": [
+//     {"id": 2, "year": 2017},
+//     {"id": 4, "year": 2017},
+//     {"id": 6, "year": 2017}
+//   ],
+//   "2018": [
+//     {"id": 1, "year": 2018},
+//     {"id": 5, "year": 2018}
+//   ]
+// }
 ```
 
 > ### `isEmail`

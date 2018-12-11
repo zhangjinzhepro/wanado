@@ -85,10 +85,21 @@ const toArray = (arr) => {
 }
 // --end
 
+// 对象数组的分组 --start
+const arrayGrounp = (arr, key) => {
+  return arr.reduce((obj, ele) => {
+    (obj[ele[key]] = obj[ele[key]] || []).push(ele)
+    return obj
+  }, {})
+}
+// --end
+
+
 export {
   simplify,
   append,
   remove,
   toArray,
-  sort
+  sort,
+  arrayGrounp
 }
