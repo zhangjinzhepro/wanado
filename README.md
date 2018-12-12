@@ -14,45 +14,49 @@
 
 ## 1.  类型判断
 
-  [isString](#-isString)
+  [isString](#isstring)
 
-  [isNumber](#-isNumber)
+  [isNumber](#isnumber)
 
-  [isArray](#-isArray)
+  [isArray](#isarray)
 
-  [isBoolean](#-isBoolean)
+  [isBoolean](#isboolean)
 
-  [isFunction](#-isFunction)
+  [isFunction](#isfunction)
 
-  [isObject](#-isObject)
+  [isObject](#isobject)
 
 ## 2. 一般字符串操作
 
-  [时间格式化](#-toDate)
+  [时间格式化](#todate)
 
-  [cookie设置](#-setCookie)
+  [cookie设置](#setcookie)
 
-  [cookie获取](#-getCookie)
+  [cookie获取](#getcookie)
 
 ## 3. 一般对象操作
 
-  [对象的深浅拷贝](#-objectCopy)
+  [对象的深浅拷贝](#objectcopy)
 
-  [对象的合并](#-objectMerge)
+  [对象的合并](#objectmerge)
 
 ## 4. 一般数组操作
 
-  [数组去重](#-simplify)
+  [数组去重](#simplify)
 
-  [数组添加](#-append)
+  [数组添加](#append)
 
-  [数组删除](#-remove)
+  [数组删除](#remove)
+
+  [数组排序（支持复杂对象排序）](#sort)
+
+  [对象数组分组](#arraygrounp)
 
 ## 5. 正则验证
 
-  [邮箱](#-isEmail)
+  [邮箱](#isemail)
 
-  [手机号码](#-isPhone)
+  [手机号码](#isphone)
 
 # 文档
 
