@@ -40,7 +40,11 @@ const getCookie = (key) => {
   for (const key in cookieArr) {
     if (cookieArr.hasOwnProperty(key)) {
       var item = cookieArr[key].split('=')
-      cookieObj[item[0]] = JSON.parse(item[1])
+      if (item[1].isFunction || item[1].isArray || item[1].isObject) {
+        cookieObj[item[0]] = JSON.parse(item[1])
+      } else {
+        cookieObj[item[0]] = item[1]
+      }
     }
   }
   return cookieObj[key]

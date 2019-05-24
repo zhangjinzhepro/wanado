@@ -1,6 +1,6 @@
 {
   "name": "z-formatter",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "一个简单js工具库",
   "main": "bin/index.js",
   "bin": "bin/index.js",
