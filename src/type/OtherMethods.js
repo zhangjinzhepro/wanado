@@ -35,12 +35,26 @@ const setCookie = (key, val, time = '') => {
 }
 
 const getCookie = (key) => {
-  var cookieArr = document.cookie.split('; ')
+  var cookie = document.cookie
   var cookieObj = {}
+  if (!key || cookie === '') {
+    return new Error('参数错误')
+  }
+  if (cookie.indexOf(';') === -1) {
+    var item = cookie.split('=')
+    if (item[1].isFunction || item[1].isArray || item[1].isObject) {
+      cookieObj[item[0]] = JSON.parse(item[1])
+    } else {
+      cookieObj[item[0]] = item[1]
+    }
+    return cookieObj[key]
+  }
+
+  var cookieArr = cookie.split('; ')
   for (const key in cookieArr) {
     if (cookieArr.hasOwnProperty(key)) {
       var item = cookieArr[key].split('=')
-      if (item[1].isFunction || item[1].isArray || item[1].isObject) {
+      if (isFunction(item[1]) || isArray(item[1]) || isObject(item[1])) {
         cookieObj[item[0]] = JSON.parse(item[1])
       } else {
         cookieObj[item[0]] = item[1]
