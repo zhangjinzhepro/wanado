@@ -1,15 +1,15 @@
-import * as string from './type/StringMethods'
-import * as number from './type/NumberMethods'
-import * as object from './type/ObjectMethods'
-import * as other from './type/OtherMethods'
-import * as array from './type/ArrayMethods'
+import * as string from './type/StringMethods';
+import * as number from './type/NumberMethods';
+import * as object from './type/ObjectMethods';
+import * as other from './type/OtherMethods';
+import * as array from './type/ArrayMethods';
 
-let $z = {
+const $z = {
   ...string,
   ...number,
   ...object,
   ...other,
-  ...array
-}
+  ...array,
+};
 
-export default $z
+export default $z;

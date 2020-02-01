@@ -1,44 +1,43 @@
 import {
   isObject,
-} from './OtherMethods'
+} from './OtherMethods';
 
 // 数组和对象的深拷贝浅拷贝 --start
 const objectCopy = (val, type = 'shallow') => {
   if (type === 'deep') {
-    var newObj = isObject(val) ? {} : []
+    const newObj = isObject(val) ? {} : [];
+    // eslint-disable-next-line no-restricted-syntax
     for (const key in val) {
-      if (val.hasOwnProperty(key)) {
+      if (Object.prototype.hasOwnProperty.call(val, key)) {
         if (val[key] || typeof val[key] === 'object') {
-          newObj[key] = isObject(val[key]) ? {} : []
-          newObj[key] = objectCopy(val[key])
+          newObj[key] = isObject(val[key]) ? {} : [];
+          newObj[key] = objectCopy(val[key]);
         } else {
           newObj[key] = val[key];
         }
       }
     }
-    return newObj
-  } else {
-    return Object.assign(val)
+    return newObj;
   }
-}
+  return Object.assign(val);
+};
 // --end
 
 // 对象合并 --start
 const objectMerge = (...obj) => {
-  let arr = [...obj]
+  const arr = [...obj];
   arr.forEach((ele) => {
     if (!isObject(ele)) {
-      return new Error('参数错误')
+      return new Error('参数错误');
     }
-  })
-  return arr.reduce((a, b) => {
-    return Object.assign({}, a, b)
-  })
-}
+    return true;
+  });
+  return arr.reduce((a, b) => ({ ...a, ...b }));
+};
 // --end
 
 
 export {
   objectCopy,
   objectMerge,
-}
+};
