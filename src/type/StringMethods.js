@@ -1,54 +1,54 @@
 // 日期格式化  --start
-const toDate = (val = new Date(), format = 'YY-MM-DD') => {
-  var date = new Date(val)
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
-  var hour = date.getHours()
-  var min = date.getMinutes()
-  var sec = date.getSeconds()
-  if (month < 10) {
-    month = '0' + month
+const toDate = (val = new Date(), format) => {
+  const date = new Date(val);
+  date.YY = date.getFullYear();
+  date.MM = date.getMonth() + 1;
+  date.DD = date.getDate();
+  date.hh = date.getHours();
+  date.mm = date.getMinutes();
+  date.ss = date.getSeconds();
+  if (date.MM < 10) {
+    date.MM = `0${date.MM}`;
   }
-  if (day < 10) {
-    day = '0' + day
+  if (date.DD < 10) {
+    date.DD = `0${date.DD}`;
   }
-  if (hour < 10) {
-    hour = '0' + hour
+  if (date.hh < 10) {
+    date.hh = `0${date.hh}`;
   }
-  if (hour < 10) {
-    hour = '0' + hour
+  if (date.mm < 10) {
+    date.mm = `0${date.mm}`;
   }
-  if (min < 10) {
-    min = '0' + min
+  if (date.ss < 10) {
+    date.ss = `0${date.ss}`;
   }
-  if (sec < 10) {
-    sec = '0' + sec
+  let result = '';
+  if (!format) {
+    return `${date.YY}-${date.MM}-${date.DD}`;
   }
-  if (format === 'YY-MM-DD hh:mm:ss') {
-    return `${year}-${month}-${day} ${hour}:${min}:${sec}`
-  } else if (format === 'YY-MM-DD') {
-    return `${year}-${month}-${day}`
-  } else {
-    return new Error('参数错误')
-  }
-}
+  format.split(/:|\s|\//g).forEach((item) => {
+    result = (result ? `${result}${(item === 'MM' || item === 'DD') ? '/' : ((item === 'hh')  ? ' ' : ':')}` : null) + date[item];
+  });
+  return result;
+  // return new Error('参数错误');
+};
+
 // --end
 
 // 一些表单验证规则
 const isEmail = (val) => {
-  var rule = /\w{1,}@\w{1,}\.[A-z]/
-  return rule.test(val)
-}
+  const rule = /\w{1,}@\w{1,}\.[A-z]/;
+  return rule.test(val);
+};
 
 const isPhone = (val) => {
-  var rule = /1[\d]{10}/
-  return rule.test(val)
-}
+  const rule = /1[\d]{10}/;
+  return rule.test(val);
+};
 // --end
 
 export {
   toDate,
   isEmail,
-  isPhone
-}
+  isPhone,
+};

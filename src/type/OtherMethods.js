@@ -1,68 +1,68 @@
 // 判断数据类型 --start
 const isString = (val) => {
-  var type = Object.prototype.toString.call(val)
-  return type.substring(8, 14) === 'String' ? true : false
-}
+  const type = Object.prototype.toString.call(val);
+  return type.substring(8, 14) === 'String';
+};
 const isNumber = (val) => {
-  var type = Object.prototype.toString.call(val)
-  return type.substring(8, 14) === 'Number' ? true : false
-}
+  const type = Object.prototype.toString.call(val);
+  return type.substring(8, 14) === 'Number';
+};
 const isArray = (val) => {
-  var type = Object.prototype.toString.call(val)
-  return type.substring(8, 13) === 'Array' ? true : false
-}
+  const type = Object.prototype.toString.call(val);
+  return type.substring(8, 13) === 'Array';
+};
 const isBoolean = (val) => {
-  var type = Object.prototype.toString.call(val)
-  return type.substring(8, 15) === 'Boolean' ? true : false
-}
+  const type = Object.prototype.toString.call(val);
+  return type.substring(8, 15) === 'Boolean';
+};
 const isFunction = (val) => {
-  var type = Object.prototype.toString.call(val)
-  return type.substring(8, 16) === 'Function' ? true : false
-}
+  const type = Object.prototype.toString.call(val);
+  return type.substring(8, 16) === 'Function';
+};
 const isObject = (val) => {
-  var type = Object.prototype.toString.call(val)
-  return type.substring(8, 14) === 'Object' ? true : false
-}
+  const type = Object.prototype.toString.call(val);
+  return type.substring(8, 14) === 'Object';
+};
 // --end
 
-//cookie操作  --start
+// cookie操作  --start
 const setCookie = (key, val, time = '') => {
-  var max_age = time === '' ? '' : `max-age={time * 60 * 60}`
+  const max_age = time === '' ? '' : 'max-age={time * 60 * 60}';
   if (typeof val === 'object') {
-    val = JSON.stringify(val)
+    val = JSON.stringify(val);
   }
-  document.cookie = key + "=" + val + "; " + max_age;
-}
+  document.cookie = `${key}=${val}; ${max_age}`;
+};
 
 const getCookie = (key) => {
-  var cookie = document.cookie
-  var cookieObj = {}
+  const { cookie } = document;
+  const cookieObj = {};
   if (!key || cookie === '') {
-    return new Error('参数错误')
+    return new Error('参数错误');
   }
   if (cookie.indexOf(';') === -1) {
-    var item = cookie.split('=')
+    const item = cookie.split('=');
     if (item[1].isFunction || item[1].isArray || item[1].isObject) {
-      cookieObj[item[0]] = JSON.parse(item[1])
+      cookieObj[item[0]] = JSON.parse(item[1]);
     } else {
-      cookieObj[item[0]] = item[1]
+      cookieObj[item[0]] = item[1];
     }
-    return cookieObj[key]
+    return cookieObj[key];
   }
 
-  var cookieArr = cookie.split('; ')
+  const cookieArr = cookie.split('; ');
   for (const key in cookieArr) {
     if (cookieArr.hasOwnProperty(key)) {
-      var item = cookieArr[key].split('=')
+      const item = cookieArr[key].split('=');
       if (isFunction(item[1]) || isArray(item[1]) || isObject(item[1])) {
-        cookieObj[item[0]] = JSON.parse(item[1])
+        cookieObj[item[0]] = JSON.parse(item[1]);
       } else {
-        cookieObj[item[0]] = item[1]
+        cookieObj[item[0]] = item[1];
       }
     }
   }
-  return cookieObj[key]
-}
+  return cookieObj[key];
+};
 // --end
 
 export {
@@ -73,5 +73,5 @@ export {
   isFunction,
   isObject,
   setCookie,
-  getCookie
-}
+  getCookie,
+};

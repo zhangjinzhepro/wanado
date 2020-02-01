@@ -1,24 +1,24 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   entry: {
-    index: './src/index.js'
+    index: './src/index.js',
   },
   mode: 'production',
   output: {
-    libraryTarget: "umd",
+    libraryTarget: 'umd',
     filename: '[name].js',
-    path: path.resolve('bin')
+    path: path.resolve('bin'),
   },
-  module:{
+  module: {
     rules: [
       {
         test: /\.js$/,
         include: [
-          path.resolve('src')
+          path.resolve('src'),
         ],
-        loader: 'babel-loader'
-      }
-    ]
-  }
-}
+        loader: 'babel-loader',
+      },
+    ],
+  },
+};

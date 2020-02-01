@@ -207,17 +207,14 @@ $z.getCookie('data')
 
 ```js
 $z.toDate(date,format)
-// date: Number 毫秒数 ||日期格式
-// format: String 'YY-MM-DD hh:mm:ss' || 'YY-MM-DD'
+// date: Date 毫秒数 ||日期格式
+// format: String 'YY-MM-DD hh:mm:ss'
 
-$z.toDate() //当前时间
-// 2018-10-25
+$z.toDate('2018-3-3') // 默认格式化
+// 2018/03/03
 
-$z.toDate('2018-3-3') // 指定时间
-// 2018-03-03
-
-$z.toDate(1234567890, 'YY-MM-DD hh:mm:ss') //指定时间格式化
-// 1970-01-15 14:56:07
+$z.toDate(1234567890, 'YY/MM/DD hh:mm:ss') //指定格式化（可自由组合）
+// 1970/01/15 14:56:07
 ```
 
 > ### `objectCopy`
