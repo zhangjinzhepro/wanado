@@ -4,7 +4,7 @@ import * as object from './type/ObjectMethods';
 import * as other from './type/OtherMethods';
 import * as array from './type/ArrayMethods';
 
-const $z = {
+const wanado = {
   ...string,
   ...number,
   ...object,
@@ -12,4 +12,4 @@ const $z = {
   ...array,
 };
 
-export default $z;
+export default wanado;
