@@ -8,13 +8,15 @@
 `npm install wanado`
 
 ### 引用
-`import wanado from 'wanado'`
+`import wanado from 'wanado'`  
+#### 按需加载,需安装`eslint-plugin-import`
+`import { isString } from 'wanado/src/type/check'`
 
 # 索引
 
 ## 1.  判断
 
-- [check](#isstring)  
+- [isString](#isstring)  
 - [isNumber](#isnumber)
 - [isArray](#isarray)
 - [isBoolean](#isboolean)

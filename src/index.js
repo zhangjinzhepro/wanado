@@ -7,9 +7,9 @@ import * as check from './type/check';
 const wanado = {
   ...check,
   ...storage,
+  ...object,
+  ...array,
   // ...number,
-  // ...object,
-  // ...array,
 };
 
 export default wanado;

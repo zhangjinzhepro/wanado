@@ -1,7 +1,7 @@
 import { isObject } from './check';
 
-// 数组和对象的深拷贝浅拷贝 --start
-const objectCopy = (val, type = 'shallow') => {
+// copy
+export const objectCopy = (val, type = 'shallow') => {
   if (type === 'deep') {
     const newObj = isObject(val) ? {} : [];
     // eslint-disable-next-line no-restricted-syntax
@@ -19,10 +19,9 @@ const objectCopy = (val, type = 'shallow') => {
   }
   return Object.assign(val);
 };
-// --end
 
-// 对象合并 --start
-const objectMerge = (...obj) => {
+// 数组合并
+export const objectMerge = (...obj) => {
   const arr = [...obj];
   arr.forEach((ele) => {
     if (!isObject(ele)) {
@@ -31,11 +30,4 @@ const objectMerge = (...obj) => {
     return true;
   });
   return arr.reduce((a, b) => ({ ...a, ...b }));
-};
-// --end
-
-
-export {
-  objectCopy,
-  objectMerge,
 };

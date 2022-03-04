@@ -1,5 +1,6 @@
 import { isArray, isNumber, isObject } from './check';
 
+// 数组去重
 export const deDuplicate = (arr, key) => {
   // 对象数组
   if (key !== undefined) {
@@ -20,7 +21,7 @@ export const deDuplicate = (arr, key) => {
   return Array.from(new Set(arr));
 };
 
-
+// 数组添加
 export const arrayAppend = (arr, i, data) => {
   // 插入数组
   if (isArray(data)) {
@@ -31,6 +32,7 @@ export const arrayAppend = (arr, i, data) => {
   return arr;
 };
 
+// 数组删除
 export const arrayRemove = (arr, start, count) => {
   // 简单数组
   if (isNumber(start) && isNumber(count)) {
@@ -60,8 +62,8 @@ const sort1 = (arr, type, item, id) => {
   }
 };
 
-// 数组排序 --start
-const sort = (...obj) => {
+// 数组排序
+export const sort = (...obj) => {
   let item;
   obj[0].forEach((element) => {
     if (isObject(element)) {
@@ -97,23 +99,12 @@ const sort = (...obj) => {
   return newArr;
 };
 
-// --end
+// 伪数组转换数组
+export const toArray = (arr) => Array.prototype.slice.call(arr);
 
-// 伪数组转换数组 --start
-const toArray = (arr) => Array.prototype.slice.call(arr);
-// --end
-
-// 对象数组的分组 --start
-const arrayGrounp = (arr, key) => arr.reduce((obj, ele) => {
+// 对象数组的分组
+export const arrayGrounp = (arr, key) => arr.reduce((obj, ele) => {
   const newObj = obj;
   (newObj[ele[key]] = newObj[ele[key]] || []).push(ele);
   return newObj;
 }, {});
-// --end
-
-
-export {
-  toArray,
-  sort,
-  arrayGrounp,
-};

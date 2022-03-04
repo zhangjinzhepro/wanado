@@ -1,5 +1,6 @@
 import { isObject } from './check';
 
+// 添加cookie
 export const setCookie = (params, options = {}) => {
   if (!isObject(params)) {
     throw Error('请传入一个对象');
@@ -13,6 +14,7 @@ export const setCookie = (params, options = {}) => {
   });
 };
 
+// 获取cookie
 export const getCookie = (key) => {
   const { cookie } = document;
   // const cookieObj = {};
