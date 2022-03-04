@@ -267,13 +267,10 @@ wanado.arrayAppend(arr, i, data)
 数组删除
 
 ```js
-wanado.remove(val, start, count)
 // val: Array
-// start: index
-// count: 数量any
-
-wanado.remove([1,2,3], 2, 1)
-// [1, 2]
+// start: number or object
+// count: 可选，删除数量
+wanado.arrayRemove(val, start, count)
 ```
 
 > ### `arrayGrounp`
