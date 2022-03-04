@@ -94,8 +94,9 @@ wanado.isArray(value)
 判断是否为数组类型
 
 ```js
-wanado.isBoolean(value)
 // value: any
+// return: Boolean 
+wanado.isBoolean(value)
 ```
 
 > ### `isFunction`
@@ -119,7 +120,7 @@ wanado.isObject(value)
 ```
 > ### `isEmptyObject`
 
-判断是否为空数组
+判断是否为空对象
 
 ```js
 // value: any
@@ -145,7 +146,7 @@ wanado.isEmptyArray(value)
 // options 配置项
 wanado.setCookie(params, options)
 
-wanado.setCookie({ a: 1 },{ a:{ 'max-age': 10000 },b:{'max-age': 40000}})
+wanado.setCookie({ a: 1,b: 2 },{ a:{ 'max-age': 10000 },b:{'max-age': 40000}})
 ```
 
 > ### `getCookie`
@@ -153,14 +154,8 @@ wanado.setCookie({ a: 1 },{ a:{ 'max-age': 10000 },b:{'max-age': 40000}})
 获取cookie
 
 ```js
-wanado.getCookie(key)
 // key: String
-
-wanado.getCookie('name')
-// 'zhang'
-
-wanado.getCookie('data')
-// {a: 1, b: 2}
+wanado.getCookie(key)
 ```
 
 > ### `toDate`
@@ -184,15 +179,9 @@ wanado.toDate(1234567890, 'YY/MM/DD hh:mm:ss') //指定格式化（可自由组�
 数组或对象的拷贝
 
 ```js
-wanado.objectCopy(obj, params)
 // obj: Array || Object
-// params: 'deep' || 'shallow'
-
-wanado.objectCopy({a: 1, b: 2, c: 3}) // 浅拷贝
-// {a: 1, b: 2, c: 3} 默认浅拷贝
-
-wanado.objectCopy({a: 1, b: 2, c: {a: function(){}}}, 'deep') //深拷贝
-// {a: 1, b: 2, c: {a: function(){}}}
+// type: 'deep' || 'shallow'
+wanado.objectCopy(obj, type)
 ```
 
 > ### `objectMerge`
@@ -200,15 +189,8 @@ wanado.objectCopy({a: 1, b: 2, c: {a: function(){}}}, 'deep') //深拷贝
 合并对象并返回一个合并后的对象
 
 ```js
-wanado.objectMerge(obj, obj2...)
 // obj: Object
-
-var a = {a: 1, b: 2}
-var b = {c: 2, d: 4}
-var c = {e: 5, f: 6}
-
-wanado.objectMerge(a,b,c)
-// {a: 1, b: 2, c: 2, d: 4, e: 5, f: 6}
+wanado.objectMerge(obj, obj2...)
 ```
 
 > ### `sort`
@@ -216,10 +198,10 @@ wanado.objectMerge(a,b,c)
 数组排序（支持复杂对象排序）
 
 ```js
-wanado.sort(arr, type, key)
 // arr: Array
 // type: 'order' || 'invert'
 // key: 当传入对象数组时，要指定一个key用来排序
+wanado.sort(arr, type, key)
 
 var arr = [2, 1, 3]
 
@@ -271,7 +253,7 @@ wanado.arrayAppend(arr, i, data)
 ```js
 // val: Array
 // start: number or object
-// count: 可选，删除数量
+// count: number时必选，删除数量
 wanado.arrayRemove(val, start, count)
 ```
 
@@ -280,9 +262,9 @@ wanado.arrayRemove(val, start, count)
 根据传入的对象数组和key进行分组
 
 ```js
-wanado.arrayGrounp(arr, key)
 // arr: Array
 // key: String
+wanado.arrayGrounp(arr, key)
 
 var arr = [
   {id: 1, year: 2018},
