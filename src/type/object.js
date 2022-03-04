@@ -25,9 +25,8 @@ export const objectMerge = (...obj) => {
   const arr = [...obj];
   arr.forEach((ele) => {
     if (!isObject(ele)) {
-      return new Error('参数错误');
+      throw new Error('参数错误');
     }
-    return true;
   });
   return arr.reduce((a, b) => ({ ...a, ...b }));
 };
