@@ -1,7 +1,7 @@
 import {
   objectMerge,
   objectGrounp,
-} from '../type/ObjectMethods';
+} from '../type/object';
 
 test('objectMerge', () => {
   expect(objectMerge({

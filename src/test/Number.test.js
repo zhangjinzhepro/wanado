@@ -1,6 +1,6 @@
 import {
   return1,
-} from '../type/NumberMethods';
+} from '../type/number';
 
 test('return1', () => {
   expect(return1(1)).toEqual(1);

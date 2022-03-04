@@ -1,7 +1,7 @@
 import {
   toDate,
   isPhone,
-} from '../type/StringMethods';
+} from '../type/string';
 
 test('toDate', () => {
   expect(toDate('2018-1-1', 'YY/MM/DD hh:mm:ss')).toEqual('2018/01/01 00:00:00');

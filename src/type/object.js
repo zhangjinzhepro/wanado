@@ -1,6 +1,4 @@
-import {
-  isObject,
-} from './OtherMethods';
+import { isObject } from './check';
 
 // 数组和对象的深拷贝浅拷贝 --start
 const objectCopy = (val, type = 'shallow') => {

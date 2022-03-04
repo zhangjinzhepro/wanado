@@ -1,23 +1,52 @@
-import {
-  isObject,
-} from './OtherMethods';
-// 数组去重 --start
-const simplify = (arr) => Array.from(new Set(arr));
-// --end
+import { isArray, isNumber, isObject } from './check';
 
-// 添加 --start
-const append = (arr, i, data) => {
+export const deDuplicate = (arr, key) => {
+  // 对象数组
+  if (key !== undefined) {
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < arr.length; i++) {
+      // eslint-disable-next-line no-plusplus
+      for (let j = i + 1; j < arr.length; j++) {
+        if (arr[i][key] === arr[j][key]) {
+          arr.splice(j, 1);
+          // eslint-disable-next-line no-plusplus
+          j--;
+        }
+      }
+    }
+    return arr;
+  }
+  // 简单数组
+  return Array.from(new Set(arr));
+};
+
+
+export const arrayAppend = (arr, i, data) => {
+  // 插入数组
+  if (isArray(data)) {
+    return [...arr.slice(0, i), ...data, ...arr.slice(i)];
+  }
+  // 简单数组
   arr.splice(i, 0, data);
   return arr;
 };
-// --end
 
-// 删除 --start
-const remove = (arr, start, count) => {
-  arr.splice(start, count);
-  return arr;
+export const arrayRemove = (arr, start, count) => {
+  // 简单数组
+  if (isNumber(start) && isNumber(count)) {
+    arr.splice(start, count);
+    return arr;
+  }
+  // 对象数组
+  return arr.filter((n) => {
+    let flag = true;
+    // eslint-disable-next-line guard-for-in,no-restricted-syntax
+    for (const key in start) {
+      flag = n[key] !== start[key];
+    }
+    return flag;
+  });
 };
-// --end
 
 const sort1 = (arr, type, item, id) => {
   if (type === 'order' && item === 'obj') {
@@ -84,9 +113,6 @@ const arrayGrounp = (arr, key) => arr.reduce((obj, ele) => {
 
 
 export {
-  simplify,
-  append,
-  remove,
   toArray,
   sort,
   arrayGrounp,

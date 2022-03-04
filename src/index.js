@@ -1,15 +1,15 @@
-import * as string from './type/StringMethods';
-import * as number from './type/NumberMethods';
-import * as object from './type/ObjectMethods';
-import * as other from './type/OtherMethods';
-import * as array from './type/ArrayMethods';
+import * as number from './type/number';
+import * as object from './type/object';
+import * as storage from './type/storage';
+import * as array from './type/array';
+import * as check from './type/check';
 
 const wanado = {
-  ...string,
-  ...number,
-  ...object,
-  ...other,
-  ...array,
+  ...check,
+  ...storage,
+  // ...number,
+  // ...object,
+  // ...array,
 };
 
 export default wanado;

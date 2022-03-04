@@ -8,25 +8,22 @@
 `npm install wanado`
 
 ### 引用
-`import utils from 'wanado'`
+`import wanado from 'wanado'`
 
 # 索引
 
-## 1.  类型判断
+## 1.  判断
 
-  [isString](#isstring)
+- [check](#isstring)  
+- [isNumber](#isnumber)
+- [isArray](#isarray)
+- [isBoolean](#isboolean)
+- [isFunction](#isfunction)
+- [isObject](#isobject)
+- [isEmptyObject](#isemptyobject)
+- [isEmptyArray](#isemptyarray)
 
-  [isNumber](#isnumber)
-
-  [isArray](#isarray)
-
-  [isBoolean](#isboolean)
-
-  [isFunction](#isfunction)
-
-  [isObject](#isobject)
-
-## 2. 一般字符串操作
+## 2. 一般字符串操作
 
   [时间格式化](#todate)
 
@@ -42,9 +39,9 @@
 
 ## 4. 一般数组操作
 
-  [数组去重](#simplify)
+  [数组去重](#deduplicate)
 
-  [数组添加](#append)
+  [数组添加](#arrayappend)
 
   [数组删除](#remove)
 
@@ -60,22 +57,14 @@
 
 # 文档
 
-> ### `isString`
+> ### `check`
 
 判断是否为字符串类型
 
 ```js
-utils.isString(value)
 // value: any
-
-utils.isString('123')
-// true
-
-utils.isString(123)
-// false
-
-utils.isString({ a: 1, b: 2 })
-// false
+// return: Boolean 
+wanado.check(value)
 ```
 
 > ### `isNumber`
@@ -83,17 +72,9 @@ utils.isString({ a: 1, b: 2 })
 判断是否为数字类型
 
 ```js
-utils.isNumber(value)
 // value: any
-
-utils.isNumber(123)
-// true
-
-utils.isNumber('123')
-// false
-
-utils.isNumber({ a: 1, b: 2 })
-// false
+// return: Boolean 
+wanado.isNumber(value)
 ```
 
 > ### `isArray`
@@ -101,17 +82,9 @@ utils.isNumber({ a: 1, b: 2 })
 判断是否为数组类型
 
 ```js
-utils.isArray(value)
 // value: any
-
-utils.isArray([ 1, 2, 3 ])
-// true
-
-utils.isArray('123')
-// false
-
-utils.isArray({ a: 1, b: 2 })
-// false
+// return: Boolean 
+wanado.isArray(value)
 ```
 
 > ### `isBoolean`
@@ -119,17 +92,8 @@ utils.isArray({ a: 1, b: 2 })
 判断是否为数组类型
 
 ```js
-utils.isBoolean(value)
+wanado.isBoolean(value)
 // value: any
-
-utils.isBoolean(false)
-// true
-
-utils.isBoolean('123')
-// false
-
-utils.isBoolean({ a: 1, b: 2 })
-// false
 ```
 
 > ### `isFunction`
@@ -137,17 +101,9 @@ utils.isBoolean({ a: 1, b: 2 })
 判断是否为函数类型
 
 ```js
-utils.isFunction(value)
 // value: any
-
-utils.isFunction(function(){})
-// true
-
-utils.isFunction('123')
-// false
-
-utils.isFunction({ a: 1, b: 2 })
-// false
+// return: Boolean 
+wanado.isFunction(value)
 ```
 
 > ### `isObject`
@@ -155,18 +111,27 @@ utils.isFunction({ a: 1, b: 2 })
 判断是否为对象类型
 
 ```js
-utils.isObject(value)
 // value: any
+// return: Boolean 
+wanado.isObject(value)
+```
+> ### `isEmptyObject`
 
-utils.isObject({ a: 1, b: 2 })
-// true
+判断是否为空数组
 
-utils.isObject(function(){})
-// false
+```js
+// value: any
+// return: Boolean 
+wanado.isEmptyObject(value)
+```
+> ### `isEmptyArray`
 
-utils.isObject('123')
-// false
+判断是否为空数组
 
+```js
+// value: any
+// return: Boolean 
+wanado.isEmptyArray(value)
 ```
 
 > ### `setCookie`
@@ -174,16 +139,11 @@ utils.isObject('123')
 设置cookie
 
 ```js
-utils.setCookie(key, val, time)
-// key: String
-// val: any
-// time: 保存时间（一小时为单位）
+// params 数据源
+// options 配置项
+wanado.setCookie(params, options)
 
-utils.setCookie('name','zhang')
-// key: 'name' value: 'zhang'
-
-utils.setCookie('data',{a:1,b:2},3)
-// key: 'data' value: [{'a':1,'b':2}]
+wanado.setCookie({ a: 1 },{ a:{ 'max-age': 10000 },b:{'max-age': 40000}})
 ```
 
 > ### `getCookie`
@@ -191,13 +151,13 @@ utils.setCookie('data',{a:1,b:2},3)
 获取cookie
 
 ```js
-utils.getCookie(key)
+wanado.getCookie(key)
 // key: String
 
-utils.getCookie('name')
+wanado.getCookie('name')
 // 'zhang'
 
-utils.getCookie('data')
+wanado.getCookie('data')
 // {a: 1, b: 2}
 ```
 
@@ -206,14 +166,14 @@ utils.getCookie('data')
 时间格式化函数
 
 ```js
-utils.toDate(date,format)
+wanado.toDate(date,format)
 // date: Date 毫秒数 ||日期格式
 // format: String 'YY-MM-DD hh:mm:ss'
 
-utils.toDate('2018-3-3') // 默认格式化
+wanado.toDate('2018-3-3') // 默认格式化
 // 2018/03/03
 
-utils.toDate(1234567890, 'YY/MM/DD hh:mm:ss') //指定格式化（可自由组合）
+wanado.toDate(1234567890, 'YY/MM/DD hh:mm:ss') //指定格式化（可自由组合）
 // 1970/01/15 14:56:07
 ```
 
@@ -222,14 +182,14 @@ utils.toDate(1234567890, 'YY/MM/DD hh:mm:ss') //指定格式化（可自由组�
 数组或对象的拷贝
 
 ```js
-utils.objectCopy(obj, params)
+wanado.objectCopy(obj, params)
 // obj: Array || Object
 // params: 'deep' || 'shallow'
 
-utils.objectCopy({a: 1, b: 2, c: 3}) // 浅拷贝
+wanado.objectCopy({a: 1, b: 2, c: 3}) // 浅拷贝
 // {a: 1, b: 2, c: 3} 默认浅拷贝
 
-utils.objectCopy({a: 1, b: 2, c: {a: function(){}}}, 'deep') //深拷贝
+wanado.objectCopy({a: 1, b: 2, c: {a: function(){}}}, 'deep') //深拷贝
 // {a: 1, b: 2, c: {a: function(){}}}
 ```
 
@@ -238,14 +198,14 @@ utils.objectCopy({a: 1, b: 2, c: {a: function(){}}}, 'deep') //深拷贝
 合并对象并返回一个合并后的对象
 
 ```js
-utils.objectMerge(obj, obj2...)
+wanado.objectMerge(obj, obj2...)
 // obj: Object
 
 var a = {a: 1, b: 2}
 var b = {c: 2, d: 4}
 var c = {e: 5, f: 6}
 
-utils.objectMerge(a,b,c)
+wanado.objectMerge(a,b,c)
 // {a: 1, b: 2, c: 2, d: 4, e: 5, f: 6}
 ```
 
@@ -254,17 +214,17 @@ utils.objectMerge(a,b,c)
 数组排序（支持复杂对象排序）
 
 ```js
-utils.sort(arr, type, key)
+wanado.sort(arr, type, key)
 // arr: Array
 // type: 'order' || 'invert'
 // key: 当传入对象数组时，要指定一个key用来排序
 
 var arr = [2, 1, 3]
 
-utils.sort(arr, 'order')
+wanado.sort(arr, 'order')
 // [1, 2, 3]
 
-utils.sort(arr, 'invert')
+wanado.sort(arr, 'invert')
 // [3, 2, 1]
 
 var arr = [
@@ -273,38 +233,33 @@ var arr = [
   {id:2,name:'li'}
 ]
 
-utils.sort(arr, 'order', 'id')
+wanado.sort(arr, 'order', 'id')
 // {id:1,name: 'wang'},{id:2,name:'li'},{id:3,name:'zhang'},
 
-utils.sort(arr, 'invert', 'id')
+wanado.sort(arr, 'invert', 'id')
 //  {id:3,name:'zhang'}, {id:2,name:'li'}, {id:1,name: 'wang'},
 
 ```
 
-> ### `simplify`
+> ### `deDuplicate`
 
 数组去重
 
 ```js
-utils.simplify(arr)
-// val: Array
-
-utils.simplify([1,2,3,2,3,2,4,5,6])
-// [1, 2, 3, 4, 5, 6]
+// arr: Array
+// key: 可选，用于对象数组指定key值
+wanado.deDuplicate(arr, key)
 ```
 
-> ### `append`
+> ### `arrayAppend`
 
 数组添加
 
 ```js
-utils.append(val, i, data)
-// val: Array
+// arr: Array
 // i: index
-// data: any
-
-utils.append([1,2,3], 2, {a:1})
-// [1, 2, {a:1}, 3]
+// data: array or object or 基本类型
+wanado.arrayAppend(arr, i, data)
 ```
 
 > ### `remove`
@@ -312,12 +267,12 @@ utils.append([1,2,3], 2, {a:1})
 数组删除
 
 ```js
-utils.remove(val, start, count)
+wanado.remove(val, start, count)
 // val: Array
 // start: index
 // count: 数量any
 
-utils.remove([1,2,3], 2, 1)
+wanado.remove([1,2,3], 2, 1)
 // [1, 2]
 ```
 
@@ -326,7 +281,7 @@ utils.remove([1,2,3], 2, 1)
 根据传入的对象数组和key进行分组
 
 ```js
-utils.arrayGrounp(arr, key)
+wanado.arrayGrounp(arr, key)
 // arr: Array
 // key: String
 
@@ -340,7 +295,7 @@ var arr = [
 ]
 
 
-utils.arrayGrounp(arr, 'year')
+wanado.arrayGrounp(arr, 'year')
 // {
 //   "2016": [
 //     {"id": 3, "year": 2016}
@@ -362,13 +317,13 @@ utils.arrayGrounp(arr, 'year')
 表单验证邮箱
 
 ```js
-utils.isEmail(val)
+wanado.isEmail(val)
 // val: String
 
-utils.isEmail('123@qq.com')
+wanado.isEmail('123@qq.com')
 // true
 
-utils.isEmail('utilshang@utilshangan.cn')
+wanado.isEmail('wanadohang@wanadohangan.cn')
 // true
 ```
 
@@ -377,13 +332,13 @@ utils.isEmail('utilshang@utilshangan.cn')
 表单验证手机号
 
 ```js
-utils.isPhone(val)
+wanado.isPhone(val)
 // val: String || Number
 
-utils.isPhone('13233333333')
+wanado.isPhone('13233333333')
 // true
 
-utils.isPhone('18623456543')
+wanado.isPhone('18623456543')
 // true
 ```
 更多功能陆续添加中...
