@@ -262,7 +262,7 @@ wanado.deDuplicate(arr, key)
 wanado.arrayAppend(arr, i, data)
 ```
 
-> ### `remove`
+> ### `arrayRemove`
 
 数组删除
 
