@@ -1,6 +1,11 @@
 import { isArray, isNumber, isObject } from './check';
 
-// 数组去重
+/**
+ * 数组去重
+ * @param arr
+ * @param key
+ * @returns {any[]|*}
+ */
 export const deDuplicate = (arr, key) => {
   // 对象数组
   if (key !== undefined) {
@@ -21,7 +26,13 @@ export const deDuplicate = (arr, key) => {
   return Array.from(new Set(arr));
 };
 
-// 数组添加
+/**
+ * 数组添加
+ * @param arr
+ * @param i
+ * @param data
+ * @returns {*[]|*}
+ */
 export const arrayAppend = (arr, i, data) => {
   // 插入数组
   if (isArray(data)) {
@@ -32,7 +43,13 @@ export const arrayAppend = (arr, i, data) => {
   return arr;
 };
 
-// 数组删除
+/**
+ * 数组删除
+ * @param arr
+ * @param start
+ * @param count
+ * @returns {*}
+ */
 export const arrayRemove = (arr, start, count) => {
   // 简单数组
   if (isNumber(start) && isNumber(count)) {
@@ -50,53 +67,24 @@ export const arrayRemove = (arr, start, count) => {
   });
 };
 
-const sort1 = (arr, type, item, id) => {
-  if (type === 'order' && item === 'obj') {
-    return arr.sort((a, b) => a[id] - b[id]);
-  } if (type === 'invert' && item === 'obj') {
-    return arr.sort((a, b) => b[id] - a[id]);
-  } if (type === 'order' && item === 'str') {
+/**
+ * 数组排序
+ * @param arr
+ * @param type
+ * @param key
+ * @returns {*}
+ */
+export const sort = (arr, type, key) => {
+  if (key && type === 'order') {
+    return arr.sort((a, b) => a[key] - b[key]);
+  }
+  if (key && type === 'invert') {
+    return arr.sort((a, b) => b[key] - a[key]);
+  }
+  if (type === 'order') {
     return arr.sort((a, b) => a - b);
-  } if (type === 'invert' && item === 'str') {
-    return arr.sort((a, b) => b - a);
   }
-};
-
-// 数组排序
-export const sort = (...obj) => {
-  let item;
-  obj[0].forEach((element) => {
-    if (isObject(element)) {
-      item = 'obj';
-    } else {
-      item = 'str';
-    }
-  });
-  let newArr;
-  if (item === 'obj' && obj[1] && obj[2]) {
-    switch (obj[1]) {
-      case 'order':
-        newArr = sort1(obj[0], 'order', item, obj[2]);
-        break;
-      case 'invert':
-        newArr = sort1(obj[0], 'invert', item, obj[2]);
-        break;
-      default:
-        return new Error('参数错误');
-    }
-  } else if (item === 'str' && obj[1]) {
-    switch (obj[1]) {
-      case 'order':
-        newArr = sort1(obj[0], 'order', item);
-        break;
-      case 'invert':
-        newArr = sort1(obj[0], 'invert', item);
-        break;
-      default:
-        return new Error('参数错误');
-    }
-  }
-  return newArr;
+  return arr.sort((a, b) => b - a);
 };
 
 // 伪数组转换数组
