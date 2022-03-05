@@ -18,6 +18,9 @@ module.exports = {
           path.resolve('src'),
         ],
         loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
       },
     ],
   },
