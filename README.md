@@ -135,18 +135,18 @@ wanado.getCookie(key)
 
 > ### `toDate`
 
-时间格式化函数
+时间格式化函数（格式详情[请点击](https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi)）
 
 ```js
-wanado.toDate(date,format)
-// date: Date 毫秒数 ||日期格式
+// date: Date 毫秒数 ||日期格式 || 空（当前时间）
 // format: String 'YY-MM-DD hh:mm:ss'
+wanado.toDate(date,format)
 
-wanado.toDate('2018-3-3') // 默认格式化
-// 2018/03/03
+wanado.toDate('2018-3-3') // 默认格式
+// 2018-03-03 00:00:00
 
-wanado.toDate(1234567890, 'YY/MM/DD hh:mm:ss') //指定格式化（可自由组合）
-// 1970/01/15 14:56:07
+wanado.toDate(1234567890, 'YY//MM!!DD hh::mm""ss') //格式化可自由组合（包括连接符）
+// 1970//01!!15 14::56""07
 ```
 
 > ### `objectCopy`

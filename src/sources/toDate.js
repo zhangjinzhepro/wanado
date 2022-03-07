@@ -14,5 +14,8 @@ export const toDate = (val, format) => {
     s: date.getSeconds(),
     ss: date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds(),
   };
-  return format.replace(/(y{0,4})(\W+)(M{0,2})(\W+)(D{0,2})(\W+)(h{0,2})(\W+)(m{0,2})(\W+)(s{0,2})/, (string, y, s1, M, s2, D, s3, h, s4, m, s5, s) => `${time[y]}${s1}${time[M]}${s2}${time[D]}${s3}${time[h]}${s4}${time[m]}${s5}${time[s]}`);
+  if (format) {
+    return format.replace(/(y{0,4})(\W*)(M{0,2})(\W*)(D{0,2})(\W*)(h{0,2})(\W*)(m{0,2})(\W*)(s{0,2})/, (string, y, s1, M, s2, D, s3, h, s4, m, s5, s) => `${time[y] || ''}${s1}${time[M] || ''}${s2}${time[D] || ''}${s3}${time[h] || ''}${s4}${time[m] || ''}${s5}${time[s] || ''}`);
+  }
+  return `${time.yyyy}-${time.MM}-${time.DD} ${time.hh}:${time.mm}:${time.ss}`
 };
