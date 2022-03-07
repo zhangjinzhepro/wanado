@@ -1,34 +1,18 @@
 // eslint-disable-next-line default-param-last
-export const toDate = (val = new Date(), format) => {
-  const date = new Date(val);
-  date.YY = date.getFullYear();
-  date.MM = date.getMonth() + 1;
-  date.DD = date.getDate();
-  date.hh = date.getHours();
-  date.mm = date.getMinutes();
-  date.ss = date.getSeconds();
-  if (date.MM < 10) {
-    date.MM = `0${date.MM}`;
-  }
-  if (date.DD < 10) {
-    date.DD = `0${date.DD}`;
-  }
-  if (date.hh < 10) {
-    date.hh = `0${date.hh}`;
-  }
-  if (date.mm < 10) {
-    date.mm = `0${date.mm}`;
-  }
-  if (date.ss < 10) {
-    date.ss = `0${date.ss}`;
-  }
-  let result = '';
-  if (!format) {
-    return `${date.YY}-${date.MM}-${date.DD}`;
-  }
-  format.split(/:|\s|\//g).forEach((item) => {
-    result = (result ? `${result}${(item === 'MM' || item === 'DD') ? '/' : ((item === 'hh') ? ' ' : ':')}` : null) + date[item];
-  });
-  return result;
-  // return new Error('参数错误');
+export const toDate = (val, format) => {
+  const date = new Date(val || new Date());
+  const time = {
+    yyyy: date.getFullYear(),
+    M: date.getMonth() + 1,
+    MM: `0${date.getMonth() + 1}`,
+    D: date.getDate(),
+    DD: date.getDate() < 10 ? `0${date.getDate()}` : date.getDate(),
+    h: date.getHours(),
+    hh: date.getHours() < 10 ? `0${date.getHours()}` : date.getHours(),
+    m: date.getMinutes(),
+    mm: date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes(),
+    s: date.getSeconds(),
+    ss: date.getSeconds() < 10 ? `0${date.getSeconds()}` : date.getSeconds(),
+  };
+  return format.replace(/(y{0,4})(\W+)(M{0,2})(\W+)(D{0,2})(\W+)(h{0,2})(\W+)(m{0,2})(\W+)(s{0,2})/, (string, y, s1, M, s2, D, s3, h, s4, m, s5, s) => `${time[y]}${s1}${time[M]}${s2}${time[D]}${s3}${time[h]}${s4}${time[m]}${s5}${time[s]}`);
 };
