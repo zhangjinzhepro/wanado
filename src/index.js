@@ -7,6 +7,5 @@ function importAll(arr) {
 }
 
 importAll(require.context('./sources/', true, /\.js$/));
-console.log(modules);
 
 export default modules;
