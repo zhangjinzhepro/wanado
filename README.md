@@ -33,7 +33,7 @@
 - [数组排序（支持复杂对象排序）](#sort)
 - [对象数组分组](#arraygrounp)
 - [邮箱](#isemail)
-- [手机号码](#isphone)
+- [手机号码](#isphonenum)
 > ### `check`
 
 判断是否为字符串类型
@@ -283,18 +283,18 @@ wanado.isEmail('wanadohang@wanadohangan.cn')
 // true
 ```
 
-> ### `isPhone`
+> ### `isPhoneNum`
 
 表单验证手机号
 
 ```js
-wanado.isPhone(val)
+wanado.isPhoneNum(val)
 // val: String || Number
 
-wanado.isPhone('13233333333')
+wanado.isPhoneNum('13233333333')
 // true
 
-wanado.isPhone('18623456543')
+wanado.isPhoneNum('18623456543')
 // true
 ```
 更多功能陆续添加中...
