@@ -36,14 +36,14 @@
 - [匹配邮箱](#isemail)
 - [匹配手机号码](#isphonenum)
 
-> ### `check`
+> ### `isString`
 
 判断是否为字符串类型
 
 ```js
 // value: any
 // return: Boolean 
-wanado.check(value)
+wanado.isString(value)
 ```
 
 > ### `isNumber`
