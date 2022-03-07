@@ -8,7 +8,8 @@
 `npm install wanado`
 
 ### 引用
-`import wanado from 'wanado'`  
+`import wanado from 'wanado'`
+
 #### 按需加载,需安装`eslint-plugin-import`
 `import { isString } from 'wanado/src/sources/isString'`
 
@@ -34,6 +35,7 @@
 - [对象数组分组](#arraygrounp)
 - [匹配邮箱](#isemail)
 - [匹配手机号码](#isphonenum)
+
 > ### `check`
 
 判断是否为字符串类型
@@ -138,7 +140,7 @@ wanado.getCookie(key)
 时间格式化函数
 
 ```js
-// date: Date 毫秒数 ||日期格式 || 空（当前时间）
+// date: Date 毫秒数 || 日期格式 || 空（当前时间）
 // format: 格式如下
 // yyyy: 年
 // M: 月（不补0）
@@ -178,7 +180,7 @@ wanado.objectCopy(obj, type)
 
 ```js
 // obj: Object
-wanado.objectMerge(obj, obj2...)
+wanado.objectMerge(obj, obj2, ...obj)
 ```
 
 > ### `sort`
@@ -187,7 +189,7 @@ wanado.objectMerge(obj, obj2...)
 
 ```js
 // arr: Array
-// sources: 'order' || 'invert'
+// type: 'order' || 'invert'
 // key: 当传入对象数组时，要指定一个key用来排序
 wanado.sort(arr, type, key)
 
