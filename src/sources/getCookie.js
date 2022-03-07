@@ -1,21 +1,10 @@
-import { isObject } from './check';
-
-// 添加cookie
-export const setCookie = (params, options = {}) => {
-  if (!isObject(params)) {
-    throw Error('请传入一个对象');
-  }
-  Object.keys(params).forEach((n) => {
-    let option = ';';
-    Object.keys(options[n] || {}).forEach((m) => {
-      option += `${m}=${options[n][m]};`;
-    });
-    document.cookie = `${n}=${JSON.stringify(params[n])}${option}`;
-  });
-};
-
-// 获取cookie
+/**
+ * 获取cookie
+ * @param key
+ * @returns {*}
+ */
 export const getCookie = (key) => {
+  // eslint-disable-next-line no-undef
   const { cookie } = document;
   // const cookieObj = {};
   if (!key) {

@@ -1,6 +1,11 @@
-import { isObject } from './check';
+import { isObject } from './isObject';
 
-// copy
+/**
+ * 深浅拷贝
+ * @param val
+ * @param type
+ * @returns {*[]|any}
+ */
 export const objectCopy = (val, type = 'shallow') => {
   if (type === 'deep') {
     const newObj = isObject(val) ? {} : [];
@@ -18,15 +23,4 @@ export const objectCopy = (val, type = 'shallow') => {
     return newObj;
   }
   return Object.assign(val);
-};
-
-// 数组合并
-export const objectMerge = (...obj) => {
-  const arr = [...obj];
-  arr.forEach((ele) => {
-    if (!isObject(ele)) {
-      throw new Error('参数错误');
-    }
-  });
-  return arr.reduce((a, b) => ({ ...a, ...b }));
 };

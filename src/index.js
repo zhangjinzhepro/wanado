@@ -1,15 +1,12 @@
-import * as number from './type/number';
-import * as object from './type/object';
-import * as storage from './type/storage';
-import * as array from './type/array';
-import * as check from './type/check';
+const modules = {};
 
-const wanado = {
-  ...check,
-  ...storage,
-  ...object,
-  ...array,
-  // ...number,
-};
+function importAll(arr) {
+  arr.keys().forEach((key) => {
+    Object.assign(modules, arr(key));
+  });
+}
 
-export default wanado;
+importAll(require.context('./sources/', true, /\.js$/));
+console.log(modules);
+
+export default modules;

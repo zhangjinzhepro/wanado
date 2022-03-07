@@ -10,11 +10,9 @@
 ### 引用
 `import wanado from 'wanado'`  
 #### 按需加载,需安装`eslint-plugin-import`
-`import { isString } from 'wanado/src/type/check'`
+`import { isString } from 'wanado/src/sources/isString'`
 
 # 索引
-
-## 1.  判断
 
 - [isString](#isstring)  
 - [isNumber](#isnumber)
@@ -24,41 +22,18 @@
 - [isObject](#isobject)
 - [isEmptyObject](#isemptyobject)
 - [isEmptyArray](#isemptyarray)
-
-## 2. 一般字符串操作
-
-  [时间格式化](#todate)
-
-  [cookie设置](#setcookie)
-
-  [cookie获取](#getcookie)
-
-## 3. 一般对象操作
-
-  [对象的深浅拷贝](#objectcopy)
-
-  [对象的合并](#objectmerge)
-
-## 4. 一般数组操作
-
-  [数组去重](#deduplicate)
-
-  [数组添加](#arrayappend)
-
-  [数组删除](#remove)
-
-  [数组排序（支持复杂对象排序）](#sort)
-
-  [对象数组分组](#arraygrounp)
-
-## 5. 正则验证
-
-  [邮箱](#isemail)
-
-  [手机号码](#isphone)
-
-# 文档
-
+- [时间格式化](#todate)
+- [cookie设置](#setcookie)
+- [cookie获取](#getcookie)
+- [对象的深浅拷贝](#objectcopy)
+- [对象的合并](#objectmerge)
+- [数组去重](#deduplicate)
+- [数组添加](#arrayappend)
+- [数组删除](#remove)
+- [数组排序（支持复杂对象排序）](#sort)
+- [对象数组分组](#arraygrounp)
+- [邮箱](#isemail)
+- [手机号码](#isphone)
 > ### `check`
 
 判断是否为字符串类型
@@ -180,7 +155,7 @@ wanado.toDate(1234567890, 'YY/MM/DD hh:mm:ss') //指定格式化（可自由组�
 
 ```js
 // obj: Array || Object
-// type: 'deep' || 'shallow'
+// sources: 'deep' || 'shallow'
 wanado.objectCopy(obj, type)
 ```
 
@@ -199,7 +174,7 @@ wanado.objectMerge(obj, obj2...)
 
 ```js
 // arr: Array
-// type: 'order' || 'invert'
+// sources: 'order' || 'invert'
 // key: 当传入对象数组时，要指定一个key用来排序
 wanado.sort(arr, type, key)
 
