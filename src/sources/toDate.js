@@ -21,5 +21,5 @@ export const toDate = (val, format) => {
   if (format) {
     return format.replace(reg, (string, y, s1, M, s2, D, s3, h, s4, m, s5, s) => `${time[y] || ''}${s1}${time[M] || ''}${s2}${time[D] || ''}${s3}${h.includes('h') ? time.t : ''}${time[h] || ''}${s4}${time[m] || ''}${s5}${time[s] || ''}`);
   }
-  return `${time.yyyy}-${time.MM}-${time.DD} ${time.hh}:${time.mm}:${time.ss}`;
+  return `${time.yyyy}-${time.MM}-${time.DD} ${time.HH}:${time.mm}:${time.ss}`;
 };
