@@ -29,7 +29,7 @@
 - [对象的合并](#objectmerge)
 - [数组去重](#deduplicate)
 - [数组添加](#arrayappend)
-- [数组删除](#remove)
+- [数组删除](#arrayremove)
 - [数组排序（支持复杂对象排序）](#sort)
 - [对象数组分组](#arraygrounp)
 - [邮箱](#isemail)
