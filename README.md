@@ -32,8 +32,8 @@
 - [数组删除](#arrayremove)
 - [数组排序（支持复杂对象排序）](#sort)
 - [对象数组分组](#arraygrounp)
-- [邮箱](#isemail)
-- [手机号码](#isphonenum)
+- [匹配邮箱](#isemail)
+- [匹配手机号码](#isphonenum)
 > ### `check`
 
 判断是否为字符串类型
@@ -135,11 +135,24 @@ wanado.getCookie(key)
 
 > ### `toDate`
 
-时间格式化函数（格式详情[请点击](https://element.eleme.cn/#/zh-CN/component/date-picker#ri-qi-ge-shi)）
+时间格式化函数
 
 ```js
 // date: Date 毫秒数 ||日期格式 || 空（当前时间）
-// format: String 'YY-MM-DD hh:mm:ss'
+// format: 格式如下
+// yyyy: 年
+// M: 月（不补0）
+// MM: 月（补0）
+// D: 天（不补0）
+// DD: 天（补0）
+// h: 12小时制小时（不补0）
+// hh: 12小时制小时（补0）
+// H: 24小时制小时（不补0）
+// HH: 24小时制小时（补0）
+// m: 分钟（不补0）
+// mm: 分钟（补0）
+// s: 秒（不补0）
+// ss: 秒（补0）
 wanado.toDate(date,format)
 
 wanado.toDate('2018-3-3') // 默认格式
