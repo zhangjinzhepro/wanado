@@ -6,8 +6,7 @@
   "bin": "bin/index.js",
   "scripts": {
     "dev": "npm run build && npm link --force",
-    "build": "webpack",
-    "test": "jest"
+    "build": "webpack"
   },
   "author": "zhangjinzhe@88.com",
   "license": "ISC",
