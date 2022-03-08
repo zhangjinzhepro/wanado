@@ -15,20 +15,22 @@
 
 # 索引
 
-#### 类型判断
+#### 判断
+- [checkType](#checktype)
 - [isString](#isstring)  
 - [isNumber](#isnumber)
 - [isArray](#isarray)
 - [isBoolean](#isboolean)
 - [isFunction](#isfunction)
 - [isObject](#isobject)
-#### 判空
 - [isEmptyObject](#isemptyobject)
 - [isEmptyArray](#isemptyarray)
 #### 工具函数
 - [时间格式化](#todate)
 - [cookie设置](#setcookie)
 - [cookie获取](#getcookie)
+- [storage设置](#setstorage)
+- [storage获取](#getstorage)
 - [对象的深浅拷贝](#objectcopy)
 - [对象的合并](#objectmerge)
 - [数组去重](#deduplicate)
@@ -40,6 +42,16 @@
 - [匹配邮箱](#isemail)
 - [匹配手机号码](#isphonenum)
 - [匹配汉字](#ischinese)
+
+> ### `checkType`
+
+判断类型
+
+```js
+// value: any
+// return: 'String' || 'Number' || 'Boolean' || 'Array' || 'Objerct'......
+wanado.checkType(value)
+```
 
 > ### `isString`
 
@@ -129,6 +141,35 @@ wanado.isEmptyArray(value)
 wanado.setCookie(params, options)
 
 wanado.setCookie({ a: 1,b: 2 },{ a:{ 'max-age': 10000 },b:{'max-age': 40000}})
+```
+
+> ### `setStorage`
+
+设置storage
+
+```js
+// key 属性
+// vlaue 值
+// options 配置项
+// {
+//   mode: 'local' || 'session' // 存储位置，默认local
+//   expire: 100000 存储时间，单位秒
+// }
+wanado.setStorage(key, value, options)
+
+wanado.setStorage('id',[1,2,3], {
+  expire: 10000,
+  mode: 'session'
+})
+```
+
+> ### `getStorage`
+
+获取storage
+
+```js
+// key 属性
+wanado.setStorage(key)
 ```
 
 > ### `getCookie`
