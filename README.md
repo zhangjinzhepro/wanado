@@ -15,14 +15,17 @@
 
 # 索引
 
+#### 类型判断
 - [isString](#isstring)  
 - [isNumber](#isnumber)
 - [isArray](#isarray)
 - [isBoolean](#isboolean)
 - [isFunction](#isfunction)
 - [isObject](#isobject)
+#### 判空
 - [isEmptyObject](#isemptyobject)
 - [isEmptyArray](#isemptyarray)
+#### 工具函数
 - [时间格式化](#todate)
 - [cookie设置](#setcookie)
 - [cookie获取](#getcookie)
@@ -33,8 +36,10 @@
 - [数组删除](#arrayremove)
 - [数组排序（支持复杂对象排序）](#sort)
 - [对象数组分组](#arraygrounp)
+#### 正则
 - [匹配邮箱](#isemail)
 - [匹配手机号码](#isphonenum)
+- [匹配汉字](#ischinese)
 
 > ### `isString`
 
@@ -288,14 +293,9 @@ wanado.arrayGrounp(arr, 'year')
 表单验证邮箱
 
 ```js
-wanado.isEmail(val)
 // val: String
-
-wanado.isEmail('123@qq.com')
-// true
-
-wanado.isEmail('wanadohang@wanadohangan.cn')
-// true
+// return Boolean
+wanado.isEmail(val)
 ```
 
 > ### `isPhoneNum`
@@ -303,13 +303,18 @@ wanado.isEmail('wanadohang@wanadohangan.cn')
 表单验证手机号
 
 ```js
-wanado.isPhoneNum(val)
 // val: String || Number
+// return Boolean
+wanado.isPhoneNum(val)
 
-wanado.isPhoneNum('13233333333')
-// true
+```
+> ### `isChinese`
 
-wanado.isPhoneNum('18623456543')
-// true
+表单验证汉字 
+
+```js
+// str: String
+// return Boolean
+wanado.isChinese(str)
 ```
 更多功能陆续添加中...
