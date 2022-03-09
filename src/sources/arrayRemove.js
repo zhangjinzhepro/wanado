@@ -16,10 +16,9 @@ export const arrayRemove = (arr, start, count) => {
   // 对象数组
   return arr.filter((n) => {
     let flag = true;
-    // eslint-disable-next-line guard-for-in,no-restricted-syntax
-    for (const key in start) {
+    Object.keys(start).forEach((key) => {
       flag = n[key] !== start[key];
-    }
+    });
     return flag;
   });
 };

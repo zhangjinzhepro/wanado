@@ -4,7 +4,6 @@
  * @returns {*}
  */
 export const getCookie = (key) => {
-  // eslint-disable-next-line no-undef
   const { cookie } = document;
   // const cookieObj = {};
   if (!key) {

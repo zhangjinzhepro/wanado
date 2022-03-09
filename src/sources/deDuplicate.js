@@ -7,13 +7,10 @@
 export const deDuplicate = (arr, key) => {
   // 对象数组
   if (key !== undefined) {
-    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < arr.length; i++) {
-      // eslint-disable-next-line no-plusplus
       for (let j = i + 1; j < arr.length; j++) {
         if (arr[i][key] === arr[j][key]) {
           arr.splice(j, 1);
-          // eslint-disable-next-line no-plusplus
           j--;
         }
       }
