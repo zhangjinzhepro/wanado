@@ -38,6 +38,7 @@
 - [数组删除](#arrayremove)
 - [数组排序（支持复杂对象排序）](#sort)
 - [对象数组分组](#arraygrounp)
+- [下载二进制文件](#downloadblob)
 #### 正则
 - [匹配邮箱](#isemail)
 - [匹配手机号码](#isphonenum)
@@ -327,6 +328,17 @@ wanado.arrayGrounp(arr, 'year')
 //     {"id": 5, "year": 2018}
 //   ]
 // }
+```
+
+> ### `downloadBlob`
+
+下载二进制流文件
+
+```js
+// data: 源数据
+// type: MIME类型
+// fileName: 文件名
+wanado.downloadBlob(data, {type, fileName})
 ```
 
 > ### `isEmail`
