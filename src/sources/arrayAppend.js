@@ -1,7 +1,5 @@
-import { isArray } from './isArray';
 import { isUndefined } from './isUndefined';
 import { checkType } from './checkType';
-
 /**
  * 数组添加
  * @param target

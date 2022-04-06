@@ -1,24 +1,23 @@
-import { isNumber } from './isNumber';
+import { checkType } from './checkType';
+import { isUndefined } from './isUndefined';
 
 /**
  * 数组删除
- * @param arr
+ * @param target
  * @param start
  * @param count
  * @returns {*}
  */
-export const arrayRemove = (arr, start, count) => {
-  // 简单数组
-  if (isNumber(start) && isNumber(count)) {
-    arr.splice(start, count);
-    return arr;
+export const arrayRemove = (target, start, count) => {
+  // 根据数量删除
+  if (!isUndefined(count)) {
+    target.splice(start, count);
+    return target;
   }
-  // 对象数组
-  return arr.filter((n) => {
-    let flag = true;
-    Object.keys(start).forEach((key) => {
-      flag = n[key] !== start[key];
-    });
-    return flag;
-  });
+  // 简单数组删除
+  if (checkType(start) !== 'Object') {
+    return target.filter((n) => n !== start);
+  }
+  // 对象数组删除
+  return target.filter((n) => Object.keys(start).every((key) => n[key] !== start[key]));
 };

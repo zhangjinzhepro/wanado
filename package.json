@@ -1,6 +1,6 @@
 {
   "name": "wanado",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "一个简单js工具库",
   "main": "bin/index.js",
   "bin": "bin/index.js",

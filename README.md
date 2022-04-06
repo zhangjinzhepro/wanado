@@ -288,10 +288,22 @@ wanado.arrayAppend(target, data, i )
 数组删除
 
 ```js
-// val: Array
-// start: number or object
-// count: number时必选，删除数量
-wanado.arrayRemove(val, start, count)
+// target: Array
+// start: Any
+// count: Number 不传为复杂模式,传为简单模式
+wanado.arrayRemove(target, start, count)
+
+// 简单模式
+wanado.arrayRemove([1,2,3], 0, 2)
+wanado.arrayRemove([{a:1},{a:2},{a:3}], 1, 1)
+// [3]
+// [{a:1},{a:3}]
+
+// 复杂模式
+wanado.arrayRemove([{a:1},{a:2},{a:3}], {a:2})
+wanado.arrayRemove([1,2,3], 1)
+// [{a:1},{a:3}]
+// [2,3]
 ```
 
 > ### `arrayGrounp`
@@ -299,9 +311,9 @@ wanado.arrayRemove(val, start, count)
 根据传入的对象数组和key进行分组
 
 ```js
-// arr: Array
+// target: Array
 // key: String
-wanado.arrayGrounp(arr, key)
+wanado.arrayGrounp(target, key)
 
 var arr = [
   {id: 1, year: 2018},
