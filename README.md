@@ -277,10 +277,10 @@ wanado.deDuplicate(arr, key)
 数组添加
 
 ```js
-// arr: Array
-// i: index
-// data: array or object or 基本类型
-wanado.arrayAppend(arr, i, data)
+// target: Array
+// data: Any
+// i: index 不传默认尾部添加
+wanado.arrayAppend(target, data, i )
 ```
 
 > ### `arrayRemove`

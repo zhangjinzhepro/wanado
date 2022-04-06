@@ -1,18 +1,19 @@
 import { isArray } from './isArray';
+import { isUndefined } from './isUndefined';
+import { checkType } from './checkType';
 
 /**
  * 数组添加
- * @param arr
- * @param i
+ * @param target
  * @param data
+ * @param i
  * @returns {*[]|*}
  */
-export const arrayAppend = (arr, i, data) => {
-  // 插入数组
-  if (isArray(data)) {
-    return [...arr.slice(0, i), ...data, ...arr.slice(i)];
+export const arrayAppend = (target, data, i) => {
+  // 尾部添加
+  if (isUndefined(i)) {
+    return target.concat(checkType(data) === 'Array' ? data : [data]);
   }
-  // 简单数组
-  arr.splice(i, 0, data);
-  return arr;
+  // 正常添加
+  return [...target.slice(0, i), ...(checkType(data) === 'Array' ? data : [data]), ...target.slice(i)];
 };
