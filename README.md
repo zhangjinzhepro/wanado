@@ -382,4 +382,3 @@ wanado.isPhoneNum(val)
 // return Boolean
 wanado.isChinese(str)
 ```
-更多功能陆续添加中...
