@@ -1,13 +1,13 @@
 {
   "name": "wanado",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "一个简单js工具库",
   "main": "bin/index.js",
   "bin": "bin/index.js",
   "repository": "https://gitee.com/izhangjinzhe/wanado.git",
   "scripts": {
     "dev": "npm run build && npm link --force",
-    "push": "npm run build && git add . && git commit 'build:构建并发布npm' && git push",
+    "push": "npm run build && git add . && git commit -m 'build:构建并发布npm' && git push",
     "build": "webpack"
   },
   "author": "zhangjinzhe@88.com",
