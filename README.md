@@ -31,6 +31,7 @@
 - [cookie获取](#getcookie)
 - [storage设置](#setstorage)
 - [storage获取](#getstorage)
+- [千分位格式化](#tothousands)
 - [对象的深浅拷贝](#objectcopy)
 - [对象的合并](#objectmerge)
 - [数组去重](#deduplicate)
@@ -209,6 +210,18 @@ wanado.toDate('2018-3-3') // 默认格式
 
 wanado.toDate(1234567890, 'YY//MM!!DD hh::mm""ss') //格式化可自由组合（包括连接符）
 // 1970//01!!15 14::56""07
+```
+> ### `toThousands`
+
+千分位格式化
+
+```js
+// target: Number || String
+wanado.toThousands(target)
+
+wanado.toThousands('123123123')
+// 123,123,123
+
 ```
 
 > ### `objectCopy`

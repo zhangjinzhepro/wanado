@@ -7,6 +7,7 @@
   "repository": "https://gitee.com/izhangjinzhe/wanado.git",
   "scripts": {
     "dev": "npm run build && npm link --force",
+    "push": "npm run build && git add . && git commit 'build:构建并发布npm' && git push",
     "build": "webpack"
   },
   "author": "zhangjinzhe@88.com",

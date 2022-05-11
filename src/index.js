@@ -1,11 +1,11 @@
-const modules = {};
+const wanado = {};
 
 function importAll(arr) {
   arr.keys().forEach((key) => {
-    Object.assign(modules, arr(key));
+    Object.assign(wanado, arr(key));
   });
 }
 
 importAll(require.context('./sources/', true, /\.js$/));
 
-export default modules;
+export default wanado;
