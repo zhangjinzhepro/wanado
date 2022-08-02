@@ -1,20 +1,24 @@
+import { isNotObject } from './isNotObject';
 import { isObject } from './isObject';
+import { isUndefined } from './isUndefined';
 
 /**
  * 添加cookie
- * @param params
- * @param options
+ * @param key
+ * @param value
+ * @param option
+ * @returns {Error|*}
  */
-export const setCookie = (params, options = {}) => {
-  if (!isObject(params)) {
-    throw Error('请传入一个对象');
+// eslint-disable-next-line consistent-return
+export const setCookie = ({ key, value, option = {} }) => {
+  if (isUndefined(key)) {
+    return Error('请传入key');
   }
-  Object.keys(params).forEach((n) => {
-    let option = ';';
-    Object.keys(options[n] || {}).forEach((m) => {
-      option += `${m}=${options[n][m]};`;
-    });
-    // eslint-disable-next-line no-undef
-    document.cookie = `${n}=${JSON.stringify(params[n])}${option}`;
+  // 解析option
+  let optionStr = '';
+  Object.keys(option).forEach((n) => {
+    optionStr += `${n}=${option[n]};`;
   });
+  // eslint-disable-next-line no-undef
+  document.cookie = `${key}=${JSON.stringify(value)};${optionStr}`;
 };

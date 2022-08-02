@@ -1,1 +1,1 @@
-export const isArray = (params) => Object.prototype.toString.call(params).includes('Array');
+export const isArray = (value) => Object.prototype.toString.call(value).includes('Array');

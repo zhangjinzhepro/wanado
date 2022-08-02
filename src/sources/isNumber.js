@@ -1,1 +1,1 @@
-export const isNumber = (params) => Object.prototype.toString.call(params).includes('Number');
+export const isNumber = (value) => Object.prototype.toString.call(value).includes('Number');

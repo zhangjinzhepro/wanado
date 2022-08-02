@@ -1,23 +1,25 @@
 import { isObject } from './isObject';
+import {isArray} from "./isArray";
 
 /**
  * 深浅拷贝
- * @param val
+ * @param target
  * @param type
  * @returns {*[]|any}
  */
-export const objectCopy = (val, type = 'shallow') => {
+export const objectCopy = ({ target, type = 'shallow' }) => {
   if (type === 'deep') {
-    const newObj = isObject(val) ? {} : [];
-    Object.keys(val).forEach((key) => {
-      if (val[key] || typeof val[key] === 'object') {
-        newObj[key] = isObject(val[key]) ? {} : [];
-        newObj[key] = objectCopy(val[key]);
+    const newObj = isObject(target) ? {} : [];
+    Object.keys(target).forEach((key) => {
+      // eslint-disable-next-line no-mixed-operators
+      if (target[key] && (isObject(target[key]) || isArray(target[key]))) {
+        newObj[key] = isObject(target[key]) ? {} : [];
+        newObj[key] = objectCopy({ target: target[key], type: 'deep' });
       } else {
-        newObj[key] = val[key];
+        newObj[key] = target[key];
       }
     });
     return newObj;
   }
-  return Object.assign(val);
+  return Object.assign(target);
 };

@@ -1,1 +1,1 @@
-export const isUndefined = (params) => Object.prototype.toString.call(params).includes('Undefined');
+export const isUndefined = (value) => Object.prototype.toString.call(value).includes('Undefined');

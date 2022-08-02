@@ -1,1 +1,1 @@
-export const isBoolean = (params) => Object.prototype.toString.call(params).includes('Boolean');
+export const isBoolean = (value) => Object.prototype.toString.call(value).includes('Boolean');

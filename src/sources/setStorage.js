@@ -1,11 +1,11 @@
 import { checkType } from './checkType';
 
-export const setStorage = (key, value, options = {} ) => {
+export const setStorage = ({ key, value, option = {} }) => {
   const item = {
     data: JSON.stringify(value),
     type: checkType(value),
-    expire: options.expire && new Date().getTime() + options.expire * 1000,
-    mode: options.mode || 'local',
+    expire: option.expire && new Date().getTime() + option.expire * 1000,
+    mode: option.mode || 'local',
   };
-  (options.mode === 'session' ? sessionStorage : localStorage).setItem(key, JSON.stringify(item));
+  (option.mode === 'session' ? sessionStorage : localStorage).setItem(key, JSON.stringify(item));
 };
