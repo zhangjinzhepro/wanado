@@ -1,16 +1,16 @@
 import { isObject } from './isObject';
+import { isNotArray } from './isNotArray';
+import { isNotObject } from './isNotObject';
 
 /**
  * 对象合并
- * @param obj
- * @returns {*}
+ * @param target
+ * @param type
+ * @returns {{}}
  */
-export const objectMerge = (...obj) => {
-  const arr = [...obj];
-  arr.forEach((ele) => {
-    if (!isObject(ele)) {
-      throw new Error('参数错误');
-    }
-  });
-  return arr.reduce((a, b) => ({ ...a, ...b }));
+export const objectMerge = ({ target, type = 'backward' }) => {
+  if (isNotArray(target) || target.some((n) => isNotObject(n))) {
+    return Error('target必须为一个对象数组');
+  }
+  return target.reduce((a, b) => (type === 'forward' ? { ...b, ...a } : { ...a, ...b }));
 };

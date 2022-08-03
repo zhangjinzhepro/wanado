@@ -1,5 +1,5 @@
 import { isObject } from './isObject';
-import {isArray} from "./isArray";
+import { isArray } from './isArray';
 
 /**
  * 深浅拷贝

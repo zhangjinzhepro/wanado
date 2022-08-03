@@ -1,6 +1,6 @@
 /**
  * 伪数组转换数组
- * @param arr
- * @returns {T[]}
+ * @param target
+ * @returns {[]}
  */
-export const toArray = (arr) => Array.prototype.slice.call(arr);
+export const toArray = (target) => Array.prototype.slice.call(target);

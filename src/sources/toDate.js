@@ -1,6 +1,11 @@
-// eslint-disable-next-line default-param-last
-export const toDate = (val, format) => {
-  const date = new Date(val || new Date());
+/**
+ * 日期格式转换
+ * @param target
+ * @param format
+ * @returns {string|*}
+ */
+export const toDate = ({ target, format }) => {
+  const date = new Date(target || new Date());
   const time = {
     yyyy: date.getFullYear(),
     M: date.getMonth() + 1,
