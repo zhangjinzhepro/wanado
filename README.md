@@ -41,6 +41,7 @@
 - [对象的深浅拷贝](#objectcopy)
 - [对象的合并](#objectmerge)
 - [对象转query](#objecttoquery)
+- [query转对象](#querytoobject)
 - [数组去重](#deduplicate)
 - [数组添加](#arrayadd)
 - [数组删除](#arraydel)
