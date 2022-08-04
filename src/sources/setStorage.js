@@ -1,5 +1,11 @@
 import { checkType } from './checkType';
 
+/**
+ * 设置storage
+ * @param key
+ * @param value
+ * @param option
+ */
 export const setStorage = ({ key, value, option = {} }) => {
   const item = {
     data: JSON.stringify(value),

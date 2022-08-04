@@ -1,5 +1,3 @@
-import { checkType } from './checkType';
-import { isUndefined } from './isUndefined';
 import { isNotArray } from './isNotArray';
 import { isNotObject } from './isNotObject';
 import { isArray } from './isArray';

@@ -1,3 +1,8 @@
+/**
+ * 获取storage
+ * @param key
+ * @returns {null|any}
+ */
 export const getStorage = (key) => {
   const item = localStorage.getItem(key) || sessionStorage.getItem(key);
   if (!item) return null;
