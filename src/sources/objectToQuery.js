@@ -6,7 +6,7 @@ import { isNotObject } from './isNotObject';
  * @returns {Error|[]}
  */
 
-export const ObjectToQuery = ({ target, limit = '&' }) => {
+export const objectToQuery = ({ target, limit = '&' }) => {
   if (isNotObject(target)) {
     return Error('target必须是一个对象');
   }

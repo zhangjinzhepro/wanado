@@ -40,6 +40,7 @@
 - [千分位格式化](#tothousands)
 - [对象的深浅拷贝](#objectcopy)
 - [对象的合并](#objectmerge)
+- [对象转query](#objecttoquery)
 - [数组去重](#deduplicate)
 - [数组添加](#arrayadd)
 - [数组删除](#arraydel)
@@ -315,6 +316,29 @@ wanado.objectCopy({target, type})
 ```js
 // target: Array 对象数组
 wanado.objectMerge({target})
+```
+
+> ### `objectToQuery`
+
+对象转query
+
+```js
+// target: Object
+// limit 链接字符 不传默认&
+wanado.objectToQuery({target: {a: 1, b: 2}, limit: '@'})
+// a=1@b=2
+```
+
+
+> ### `queryToObject`
+
+query转对象
+
+```js
+// target: String
+// limit 链接字符 不传默认&
+wanado.queryToObject({target: 'a=1&b=2&c=3'})
+// { a: "1", b: "2", c: "3" }
 ```
 
 > ### `sort`
