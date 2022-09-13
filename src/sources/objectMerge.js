@@ -1,4 +1,3 @@
-import { isObject } from './isObject';
 import { isNotArray } from './isNotArray';
 import { isNotObject } from './isNotObject';
 

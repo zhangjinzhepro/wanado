@@ -1,6 +1,5 @@
-import { isNotObject } from './isNotObject';
-import { isObject } from './isObject';
 import { isUndefined } from './isUndefined';
+import { objectToQuery } from './objectToQuery';
 
 /**
  * 添加cookie
@@ -10,15 +9,11 @@ import { isUndefined } from './isUndefined';
  * @returns {Error|*}
  */
 // eslint-disable-next-line consistent-return
-export const setCookie = ({ key, value, option = {} }) => {
+export const setCookie = ({ key, value, options = {} }) => {
   if (isUndefined(key)) {
     return Error('请传入key');
   }
   // 解析option
-  let optionStr = '';
-  Object.keys(option).forEach((n) => {
-    optionStr += `${n}=${option[n]};`;
-  });
-  // eslint-disable-next-line no-undef
-  document.cookie = `${key}=${JSON.stringify(value)};${optionStr}`;
+  const optionStr = objectToQuery({ target: options, limit: ';' });
+  document.cookie = `${key}=${encodeURIComponent(value)};${optionStr}`;
 };

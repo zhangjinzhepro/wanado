@@ -1,4 +1,5 @@
 import { isUndefined } from './isUndefined';
+import { queryToObject } from './queryToObject';
 
 /**
  * 获取cookie
@@ -6,13 +7,9 @@ import { isUndefined } from './isUndefined';
  * @returns {*}
  */
 export const getCookie = (key) => {
-  const { cookie } = document;
   if (isUndefined(key)) {
     throw Error('参数错误');
   }
-  const cookieObj = (cookie.includes(';') ? cookie.split('; ') : cookie).map((n) => n.split('=')).reduce((a, b) => ({
-    ...a,
-    [b[0]]: b[1],
-  }), {});
+  const cookieObj = queryToObject({ target: document.cookie, limit: ';' });
   return cookieObj[key];
 };
