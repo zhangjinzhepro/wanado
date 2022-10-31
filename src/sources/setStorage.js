@@ -6,8 +6,9 @@ import { checkType } from './checkType';
  * @param value
  * @param option
  */
-export const setStorage = ({ key, value, option = {} }) => {
+export const setStorage = (key, value, option = {}) => {
   const item = {
+    key: 'wanado',
     data: JSON.stringify(value),
     type: checkType(value),
     expire: option.expire && new Date().getTime() + option.expire * 1000,

@@ -1,15 +1,27 @@
 /**
  * 获取storage
  * @param key
+ * @param type
  * @returns {null|any}
  */
-export const getStorage = (key) => {
-  const item = localStorage.getItem(key) || sessionStorage.getItem(key);
-  if (!item) return null;
+import { attrHas } from './attrHas';
+
+export const getStorage = (key, type = 'local') => {
+  // 判断存储位置
+  const item = (type === 'local' ? localStorage : sessionStorage).getItem(key);
+  // 判空
+  if (!attrHas(item)) return null;
   const origin = JSON.parse(item);
-  if (origin.expire && (origin.expire <= new Date().getTime())) {
-    (origin.mode === 'session' ? sessionStorage : localStorage).removeItem(key);
-    return null;
+  // wanado数据
+  if (origin.key === 'wanado') {
+    // 判断过期
+    if (origin.expire && (origin.expire <= new Date().getTime())) {
+      // 移除数据
+      (origin.mode === 'local' ? localStorage : sessionStorage).removeItem(key);
+      return null;
+    }
+    return JSON.parse(origin.data);
   }
-  return JSON.parse(origin.data);
+  // 普通数据
+  return origin;
 };
