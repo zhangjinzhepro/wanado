@@ -9,7 +9,7 @@ export const toDate = ({ target, format }) => {
   const time = {
     yyyy: date.getFullYear(),
     M: date.getMonth() + 1,
-    MM: `0${date.getMonth() + 1}`,
+    MM: (date.getMonth() + 1) < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1,
     D: date.getDate(),
     DD: date.getDate() < 10 ? `0${date.getDate()}` : date.getDate(),
     h: date.getHours() % 12,
