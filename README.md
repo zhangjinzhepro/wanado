@@ -43,7 +43,7 @@
 - [对象转query](#objecttoquery)
 - [query转对象](#querytoobject)
 - [数组去重](#deduplicate)
-- [数组添加](#arrayadd)
+- [数组插入](#listinsert-)
 - [数组删除](#arraydel)
 - [数组排序（支持复杂对象排序）](#sort)
 - [对象数组分组](#arraygrounp)
@@ -385,15 +385,17 @@ wanado.sort({target:arr, type: 'invert', key: 'id'})
 wanado.deDuplicate({target, type, key})
 ```
 
-> ### `arrayAdd`
-
-数组添加
+> ### `listInsert` 数组插入
 
 ```js
-// target: Array
-// data: Any
-// index 不传默认尾部添加
-wanado.arrayAdd({target, data, index})
+wanado.listInsert([1, 2, 3], [4, 5])
+// [1,2,3,4,5]
+wanado.listInsert([1, 2, 3], {a: 1}, 1)
+// [1,{a: 1},2,3]
+wanado.listInsert([{a: 1,b: 1},{a: 2,b: 2}], {a:3,b:3}, {a: 1})
+// [{a:1,b:1},{a:3,b:3},{a:2,b:2}]
+wanado.listInsert([{a: 1,b: 1},{a: 2,b: 2}], {a:3,b:3}, {a: 2}, 'ahead')
+// [{a:1,b:1},{a:3,b:3},{a:2,b:2}]
 ```
 
 > ### `arrayDel`
