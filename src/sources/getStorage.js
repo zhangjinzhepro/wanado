@@ -4,20 +4,20 @@
  * @param type
  * @returns {null|any}
  */
-import { attrHas } from './attrHas';
+import { isEmptyValue } from './isEmptyValue';
 
-export const getStorage = (key, type = 'local') => {
+export const getStorage = (key, type) => {
   // 判断存储位置
-  const item = (type === 'local' ? localStorage : sessionStorage).getItem(key);
+  const item = (type === 'session' ? sessionStorage : localStorage).getItem(key);
   // 判空
-  if (!attrHas(item)) return null;
+  if (isEmptyValue(item)) return null;
   const origin = JSON.parse(item);
   // wanado数据
   if (origin.key === 'wanado') {
     // 判断过期
     if (origin.expire && (origin.expire <= new Date().getTime())) {
       // 移除数据
-      (origin.mode === 'local' ? localStorage : sessionStorage).removeItem(key);
+      (origin.mode === 'session' ? sessionStorage : localStorage).removeItem(key);
       return null;
     }
     return JSON.parse(origin.data);
