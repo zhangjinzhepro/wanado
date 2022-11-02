@@ -1,15 +1,6 @@
-import { isUndefined } from './isUndefined';
-import { queryToObject } from './queryToObject';
+import { getCookie } from '../src/sources/getCookie';
 
-/**
- * 获取cookie
- * @param key
- * @returns {*}
- */
-export const getCookie = (key) => {
-  if (isUndefined(key)) {
-    throw Error('参数错误');
-  }
-  const cookieObj = queryToObject({ target: document.cookie, limit: ';' });
-  return cookieObj[key];
-};
+test('检查类型', () => {
+  document.cookie = 'a=1;';
+  expect(getCookie('a')).toBe('1');
+});
