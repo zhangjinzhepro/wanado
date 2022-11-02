@@ -1,6 +1,5 @@
 # wanado
-一个简单js库，目的是简化js数据操作
-
+一个简单js函数库，目的是简化js数据操作
 
 # 使用方法
 
@@ -15,7 +14,7 @@
 
 # 索引
 
-#### 判断
+#### 数据判断
 - [checkType](#checktype)
 - [isString](#isstring)  
 - [isNotString](#isnotstring)
@@ -29,8 +28,12 @@
 - [isNotFunction](#isnotfunction)
 - [isObject](#isobject)
 - [isNotObject](#isnotobject)
+- [isUndefined](#isundefined)
+- [isNotObject](#isUndefined)
+- [isObject](#isobject)
+- [isNotObject](#isnotobject)
 - [isEmptyObject](#isemptyobject)
-- [isEmptyArray](#isemptyarray)
+- [isEmptyList](#isemptylist)
 #### 工具函数
 - [时间格式化](#todate)
 - [cookie设置](#setcookie)
@@ -56,159 +59,121 @@
 
 # 文档
 
-> ### `checkType`
-
-判断类型
+> ### `checkType`判断类型
 
 ```js
-// value: any
-// return: 'String' || 'Number' || 'Boolean' || 'Array' || 'Objerct'......
 wanado.checkType(value)
 ```
 
-> ### `isString`
-
-判断是否为字符串类型(正向)
+> ### `isString`判断是否为字符串类型(正向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isString(value)
 ```
 
-> ### `isNotString`
-
-判断是否为字符串类型（反向）
+> ### `isNotString`判断是否为字符串类型（反向）
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isNotString(value)
 ```
 
-> ### `isNumber`
-
-判断是否为数字类型(正向)
+> ### `isNumber`判断是否为数字类型(正向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isNumber(value)
 ```
 
-> ### `isNotNumber`
-
-判断是否为数字类型(反向)
+> ### `isNotNumber`判断是否为数字类型(反向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isNotNumber(value)
 ```
 
-> ### `isArray`
-
-判断是否为数组类型(正向)
+> ### `isArray`判断是否为数组类型(正向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isArray(value)
 ```
 
-> ### `isNotArray`
-
-判断是否为数组类型(反向)
+> ### `isNotArray`判断是否为数组类型(反向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isNotArray(value)
 ```
 
-> ### `isBoolean`
-
-判断是否为布尔类型(正向)
+> ### `isBoolean`判断是否为布尔类型(正向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isBoolean(value)
 ```
 
-> ### `isNotBoolean`
-
-判断是否为布尔类型(反向)
+> ### `isNotBoolean`判断是否为布尔类型(反向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isNotBoolean(value)
 ```
 
-> ### `isFunction`
-
-判断是否为函数类型(正向)
+> ### `isFunction`判断是否为函数类型(正向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isFunction(value)
 ```
 
-> ### `isNotFunction`
-
-判断是否为函数类型(反向)
+> ### `isNotFunction`判断是否为函数类型(反向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isNotFunction(value)
 ```
 
-> ### `isObject`
-
-判断是否为对象类型(正向)
+> ### `isObject`判断是否为对象类型(正向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isObject(value)
 ```
 
-> ### `isNotObject`
-
-判断是否为对象类型(反向)
+> ### `isNotObject`判断是否为对象类型(反向)
 
 ```js
-// value: any
-// return: Boolean 
 wanado.isNotObject(value)
 ```
 
-> ### `isEmptyObject`
-
-判断是否为空对象
+> ### `isUndefined`判断是否为undefined(正向)
 
 ```js
-// value: Object
-// return: Boolean 
+wanado.isUndefined(value)
+```
+
+> ### `isNotUndefined`判断是否为undefined(反向)
+
+```js
+wanado.isNotUndefined(value)
+```
+
+> ### `isNull`判断是否为null(正向)
+
+```js
+wanado.isNull(value)
+```
+
+> ### `isNotNull`判断是否为bull(反向)
+
+```js
+wanado.isNotNull(value)
+```
+
+> ### `isEmptyObject`判断是否为空对象
+
+```js
 wanado.isEmptyObject(value)
 ```
 
-> ### `isEmptyArray`
-
-判断是否为空数组
+> ### `isEmptyList`判断是否为空数组
 
 ```js
-// value: Array
-// return: Boolean 
-wanado.isEmptyArray(value)
+wanado.isEmptyList(value)
 ```
 
-> ### `setCookie`
-
-设置cookie
+> ### `setCookie`设置cookie
 
 ```js
 // key 属性
