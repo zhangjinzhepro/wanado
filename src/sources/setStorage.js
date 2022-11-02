@@ -4,15 +4,15 @@ import { checkType } from './checkType';
  * 设置storage
  * @param key
  * @param value
- * @param option
+ * @param options
  */
-export const setStorage = (key, value, option = {}) => {
+export const setStorage = (key, value, options = {}) => {
   const item = {
-    key: 'wanado',
+    key: 'wanadoStorage',
     data: JSON.stringify(value),
     type: checkType(value),
-    expire: option.expire && new Date().getTime() + option.expire * 1000,
-    mode: option.mode || 'local',
+    expire: options.expire && new Date().getTime() + options.expire * 1000,
+    mode: options.mode || 'local',
   };
-  (option.mode === 'session' ? sessionStorage : localStorage).setItem(key, JSON.stringify(item));
+  (options.mode === 'session' ? sessionStorage : localStorage).setItem(key, JSON.stringify(item));
 };
