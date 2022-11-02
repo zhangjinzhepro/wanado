@@ -44,7 +44,7 @@
 - [query转对象](#querytoobject)
 - [数组去重](#deduplicate)
 - [数组插入](#listinsert-)
-- [数组删除](#arraydel)
+- [数组删除](#listremove-)
 - [数组排序（支持复杂对象排序）](#sort)
 - [对象数组分组](#arraygrounp)
 - [伪数组转数组](#toarray)
@@ -388,38 +388,37 @@ wanado.deDuplicate({target, type, key})
 > ### `listInsert` 数组插入
 
 ```js
+// 普通插入
 wanado.listInsert([1, 2, 3], [4, 5])
 // [1,2,3,4,5]
+
+// 依据下标插入
 wanado.listInsert([1, 2, 3], {a: 1}, 1)
 // [1,{a: 1},2,3]
+
+// 筛选对象插入
 wanado.listInsert([{a: 1,b: 1},{a: 2,b: 2}], {a:3,b:3}, {a: 1})
 // [{a:1,b:1},{a:3,b:3},{a:2,b:2}]
+
+// 选择插入方向
 wanado.listInsert([{a: 1,b: 1},{a: 2,b: 2}], {a:3,b:3}, {a: 2}, 'ahead')
 // [{a:1,b:1},{a:3,b:3},{a:2,b:2}]
 ```
 
-> ### `arrayDel`
-
-数组删除
+> ### `listRemove` 数组删除
 
 ```js
-// target: Array
-// index: Number
-// count: Number index模式下不传直接截断
-// key: Object
-wanado.arrayDel({target, index, count, key})
+// 根据下标指定数量删除
+wanado.listRemove([1,2,3,4], 0, 2)
+// [3,4]
 
-// 简单模式
-wanado.arrayDel({target:[1,2,3], index: 0, count: 2})
-wanado.arrayDel({target:[{a:1},{a:2},{a:3}], index: 1, count: 1})
-// [3]
-// [{a:1},{a:3}]
+// 指定数据删除
+wanado.listRemove([1,2,3,4], [2,4])
+// [1,3]
 
-// 复杂模式
-wanado.arrayDel({target:[{a:1},{a:2},{a:3}], key: {a:2}})
-wanado.arrayDel({target:[1,2,3], index: 1})
-// [{a:1},{a:3}]
-// [1]
+// 根据属性指定删除
+wanado.listRemove([{a: 1,b:2},{a:1,b:1,c:3}], {b:1,c:3})
+// [{a: 1, b: 2}]
 ```
 
 > ### `arrayGrounp`
