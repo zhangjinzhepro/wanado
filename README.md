@@ -42,7 +42,7 @@
 - [对象的合并](#objectmerge)
 - [对象转query](#objecttoquery)
 - [query转对象](#querytoobject)
-- [数组去重](#deduplicate)
+- [数组去重](#listdeduplicate-)
 - [数组插入](#listinsert-)
 - [数组删除](#listremove-)
 - [数组排序（支持复杂对象排序）](#sort)
@@ -374,15 +374,20 @@ wanado.sort({target:arr, type: 'invert', key: 'id'})
 
 ```
 
-> ### `deDuplicate`
-
-数组去重
+> ### `listDeduplicate` 数组去重
 
 ```js
-// target: Array
-// type 'forward' || 'backward' 前置，后置
-// key: 可选，用于对象数组指定key值
-wanado.deDuplicate({target, type, key})
+// 普通去重
+wanado.listDeduplicate([1,2,3,3,4,5,6,6,7,7,8,8,8])
+// [1,2,3,4,5,6,7,8]
+
+// 对象数组去重（默认保留向前）
+wanado.listDeduplicate([{a:1,b:2},{a:1,b:3},{a:2,b:2,c:3}], 'a')
+// [{a:1,b:2},{a:2,b:2,c:3}]
+
+// 对象数组去重（保留向后）
+wanado.listDeduplicate([{a:1,b:2},{a:1,b:3},{a:2,b:2,c:3}], 'a', 'behind')
+// [{a:1,b:3},{a:2,b:2,c:3}]
 ```
 
 > ### `listInsert` 数组插入
@@ -396,11 +401,11 @@ wanado.listInsert([1, 2, 3], [4, 5])
 wanado.listInsert([1, 2, 3], {a: 1}, 1)
 // [1,{a: 1},2,3]
 
-// 筛选对象插入
+// 筛选对象插入（默认向后）
 wanado.listInsert([{a: 1,b: 1},{a: 2,b: 2}], {a:3,b:3}, {a: 1})
 // [{a:1,b:1},{a:3,b:3},{a:2,b:2}]
 
-// 选择插入方向
+// 选择插入方向（向前）
 wanado.listInsert([{a: 1,b: 1},{a: 2,b: 2}], {a:3,b:3}, {a: 2}, 'ahead')
 // [{a:1,b:1},{a:3,b:3},{a:2,b:2}]
 ```

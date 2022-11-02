@@ -1,5 +1,5 @@
 import { isUndefined } from './isUndefined';
-import { arrayDel } from './arrayDel';
+import { listRemove } from './listRemove';
 
 /**
  * 数组去重
@@ -8,7 +8,7 @@ import { arrayDel } from './arrayDel';
  * @param type
  * @returns {[]}
  */
-export const deDuplicate = ({ target, key, type }) => {
+export const listDeduplicate = (target, key, type) => {
   // 简单数组
   if (isUndefined(key)) {
     return Array.from(new Set(target));
@@ -18,7 +18,7 @@ export const deDuplicate = ({ target, key, type }) => {
     for (let j = i + 1; j < target.length; j++) {
       if (target[i][key] === target[j][key]) {
         // eslint-disable-next-line no-param-reassign
-        target = arrayDel({ target, index: type && type === 'backward' ? i : j, count: 1 });
+        target = listRemove(target, type && type === 'behind' ? i : j, 1);
         j--;
       }
     }
