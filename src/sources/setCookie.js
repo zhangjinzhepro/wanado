@@ -10,6 +10,6 @@ import { objectToQuery } from './objectToQuery';
 // eslint-disable-next-line consistent-return
 export const setCookie = (key, value, options = {}) => {
   // options配置
-  const optionStr = objectToQuery({ target: options, limit: ';' });
+  const optionStr = objectToQuery(options, ';');
   document.cookie = `${key}=${encodeURIComponent(value)};${optionStr}`;
 };

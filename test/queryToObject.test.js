@@ -1,11 +1,6 @@
-/**
- * query转对象
- * @param target
- * @param limit
- * @returns {Error|[]}
- */
+import { queryToObject } from '../src/sources/queryToObject';
 
-export const queryToObject = ({ target, limit = '&' }) => (target.includes(limit) ? target.split(limit) : [target]).map((n) => n.split('=')).reduce((a, b) => ({
-  ...a,
-  [b[0].trim()]: b[1],
-}), {});
+test('query转对象', () => {
+  expect(queryToObject('a=1&b=2&c=3')).toStrictEqual({ a: '1', b: '2', c: '3' });
+  expect(queryToObject('a=1:b=2:c=3', ':')).toStrictEqual({ a: '1', b: '2', c: '3' });
+});

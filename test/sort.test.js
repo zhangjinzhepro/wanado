@@ -1,19 +1,8 @@
-/**
- * 数组排序
- * @param target
- * @param type
- * @param key
- * @returns {[]}
- */
-export const sort = ({ target, type = 'order', key }) => {
-  if (key && type === 'order') {
-    return target.sort((a, b) => a[key] - b[key]);
-  }
-  if (key && type === 'invert') {
-    return target.sort((a, b) => b[key] - a[key]);
-  }
-  if (type === 'order') {
-    return target.sort((a, b) => a - b);
-  }
-  return target.sort((a, b) => b - a);
-};
+import { sort } from '../src/sources/sort';
+
+test('数组排序', () => {
+  expect(sort([2, 4, 3, 6, 5, 8, 7, 9, 0])).toStrictEqual([9, 8, 7, 6, 5, 4, 3, 2, 0]);
+  expect(sort([2, 4, 3, 6, 5, 8, 7, 9, 0], 'order')).toStrictEqual([0, 2, 3, 4, 5, 6, 7, 8, 9]);
+  expect(sort([{ a: 1 }, { a: 4 }, { a: 2 }, { a: 3 }], 'a')).toStrictEqual([{ a: 4 }, { a: 3 }, { a: 2 }, { a: 1 }]);
+  expect(sort([{ a: 1 }, { a: 4 }, { a: 2 }, { a: 3 }], 'order', 'a')).toStrictEqual([{ a: 1 }, { a: 2 }, { a: 3 }, { a: 4 }]);
+});

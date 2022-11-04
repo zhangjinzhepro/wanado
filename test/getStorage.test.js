@@ -1,27 +1,11 @@
-/**
- * 获取storage
- * @param key
- * @param type
- * @returns {null|any}
- */
-import { isEmptyValue } from './isEmptyValue';
+import { getStorage } from '../src/sources/getStorage';
+import { setStorage } from '../src/sources/setStorage';
 
-export const getStorage = (key, type) => {
-  // 判断存储位置
-  const item = (type === 'session' ? sessionStorage : localStorage).getItem(key);
-  // 判空
-  if (isEmptyValue(item)) return null;
-  const origin = JSON.parse(item);
-  // wanado数据
-  if (origin.key === 'wanado') {
-    // 判断过期
-    if (origin.expire && (origin.expire <= new Date().getTime())) {
-      // 移除数据
-      (origin.mode === 'session' ? sessionStorage : localStorage).removeItem(key);
-      return null;
-    }
-    return JSON.parse(origin.data);
-  }
-  // 普通数据
-  return origin;
-};
+test('获取Storage', () => {
+  setStorage('a', 123123, { expires: 0 });
+  expect(getStorage('a')).toBe(123123);
+  setStorage('b', 'abcd', { expires: 0 });
+  expect(getStorage('b')).toBe('abcd');
+  setStorage('c', { a: 1, b: 2 }, { expires: 0 });
+  expect(getStorage('c')).toStrictEqual({ a: 1, b: 2 });
+});

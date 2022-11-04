@@ -6,6 +6,6 @@ import { queryToObject } from './queryToObject';
  * @returns {*}
  */
 export const getCookie = (key) => {
-  const cookieObj = queryToObject({ target: document.cookie, limit: ';' });
+  const cookieObj = queryToObject(document.cookie, ';');
   return cookieObj[key];
 };

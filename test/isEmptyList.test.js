@@ -1,8 +1,6 @@
-import { isNotArray } from './isNotArray';
+import { isEmptyList } from '../src/sources/isEmptyList';
 
-export const isEmptyList = (data) => {
-  if (isNotArray(data)) {
-    throw new Error('请传入一个数组');
-  }
-  return !(data.length);
-};
+test('检测空列表', () => {
+  expect(isEmptyList([123, 345])).toBe(false);
+  expect(isEmptyList([])).toBe(true);
+});

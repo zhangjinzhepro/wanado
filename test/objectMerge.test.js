@@ -1,15 +1,6 @@
-import { isNotArray } from './isNotArray';
-import { isNotObject } from './isNotObject';
+import { objectMerge } from '../src/sources/objectMerge';
 
-/**
- * 对象合并
- * @param target
- * @param type
- * @returns {{}}
- */
-export const objectMerge = ({ target, type = 'backward' }) => {
-  if (isNotArray(target) || target.some((n) => isNotObject(n))) {
-    return Error('target必须为一个对象数组');
-  }
-  return target.reduce((a, b) => (type === 'forward' ? { ...b, ...a } : { ...a, ...b }));
-};
+test('对象合并', () => {
+  expect(objectMerge([{ a: 1 }, { a: 2, b: 2 }, { a: 3, c: 3 }])).toStrictEqual({ a: 3, b: 2, c: 3 });
+  expect(objectMerge([{ a: 1 }, { a: 2, b: 2 }, { a: 3, c: 3 }], 'ahead')).toStrictEqual({ a: 1, b: 2, c: 3 });
+});

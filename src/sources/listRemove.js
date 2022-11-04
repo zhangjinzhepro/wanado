@@ -7,9 +7,8 @@ import { isObject } from './isObject';
 /**
  * 数组删除
  * @param target
- * @param index
+ * @param filter
  * @param count
- * @param key
  * @returns {Error|[]}
  */
 export const listRemove = (target, filter, count) => {

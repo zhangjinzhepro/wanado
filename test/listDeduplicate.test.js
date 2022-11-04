@@ -1,27 +1,27 @@
-import { isUndefined } from './isUndefined';
-import { listRemove } from './listRemove';
+import { listDeduplicate } from '../src/sources/listDeduplicate';
 
-/**
- * 数组去重
- * @param target
- * @param key
- * @param type
- * @returns {[]}
- */
-export const listDeduplicate = (target, key, type) => {
-  // 简单数组
-  if (isUndefined(key)) {
-    return Array.from(new Set(target));
-  }
-  // 对象数组
-  for (let i = 0; i < target.length; i++) {
-    for (let j = i + 1; j < target.length; j++) {
-      if (target[i][key] === target[j][key]) {
-        // eslint-disable-next-line no-param-reassign
-        target = listRemove(target, type && type === 'behind' ? i : j, 1);
-        j--;
-      }
-    }
-  }
-  return target;
-};
+test('列表去重', () => {
+  const list1 = [
+    { year: 2016, key: 2 },
+    { year: 2016, key: 3 },
+    { year: 2016, key: 4 },
+    { year: 2024, key: 2 },
+    { year: 2022, key: 2 },
+  ];
+  const result1 = [{ key: 2, year: 2016 }, { key: 2, year: 2024 }, { key: 2, year: 2022 }];
+  expect(listDeduplicate(list1, 'year')).toStrictEqual(result1);
+
+  const list2 = [
+    { year: 2016, key: 2 },
+    { year: 2016, key: 3 },
+    { year: 2016, key: 4 },
+    { year: 2024, key: 2 },
+    { year: 2022, key: 2 },
+  ];
+  const result2 = [{ key: 4, year: 2016 }, { key: 2, year: 2024 }, { key: 2, year: 2022 }];
+  expect(listDeduplicate(list2, 'year', 'behind')).toStrictEqual(result2);
+
+  const list3 = [1, 2, 3, 3, 4, 5, 4, 5, 4, 6, 8, 6, 5, 3, 5, 6];
+  const result3 = [1, 2, 3, 4, 5, 6, 8];
+  expect(listDeduplicate(list3)).toStrictEqual(result3);
+});

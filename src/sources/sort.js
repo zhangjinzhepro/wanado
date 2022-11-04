@@ -5,14 +5,16 @@
  * @param key
  * @returns {[]}
  */
-export const sort = ({ target, type = 'order', key }) => {
-  if (key && type === 'order') {
+import { isObject } from './isObject';
+
+export const sort = (target, filter, key) => {
+  if (key && filter === 'order') {
     return target.sort((a, b) => a[key] - b[key]);
   }
-  if (key && type === 'invert') {
-    return target.sort((a, b) => b[key] - a[key]);
+  if (filter && target.every((n) => isObject(n))) {
+    return target.sort((a, b) => b[filter] - a[filter]);
   }
-  if (type === 'order') {
+  if (filter === 'order') {
     return target.sort((a, b) => a - b);
   }
   return target.sort((a, b) => b - a);

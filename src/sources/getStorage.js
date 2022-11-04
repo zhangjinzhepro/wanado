@@ -13,7 +13,7 @@ export const getStorage = (key, type) => {
   if (isEmptyValue(item)) return null;
   const origin = JSON.parse(item);
   // wanado数据
-  if (origin.key === 'wanado') {
+  if (origin.key === 'wanadoStorage') {
     // 判断过期
     if (origin.expire && (origin.expire <= new Date().getTime())) {
       // 移除数据

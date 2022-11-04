@@ -4,7 +4,7 @@
  * @param format
  * @returns {string|*}
  */
-export const toDate = ({ target, format }) => {
+export const toDate = (target, format) => {
   const date = new Date(target || new Date());
   const time = {
     yyyy: date.getFullYear(),

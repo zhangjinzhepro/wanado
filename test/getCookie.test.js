@@ -1,6 +1,6 @@
 import { getCookie } from '../src/sources/getCookie';
 
-test('检查类型', () => {
-  document.cookie = 'a=1;';
-  expect(getCookie('a')).toBe('1');
+test('获取cookie', () => {
+  document.cookie = 'a=112312313213;';
+  expect(getCookie('a')).toBe('112312313213');
 });

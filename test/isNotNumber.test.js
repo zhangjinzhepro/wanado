@@ -1,1 +1,7 @@
-export const isNotNumber = (value) => !Object.prototype.toString.call(value).includes('Number');
+import { isNotNumber } from '../src/sources/isNotNumber';
+
+test('反向检测number类型', () => {
+  expect(isNotNumber({})).toBe(true);
+  expect(isNotNumber('123')).toBe(true);
+  expect(isNotNumber(123)).toBe(false);
+});
