@@ -35,11 +35,11 @@
 - [isEmptyObject](#isemptyobject)
 - [isEmptyList](#isemptylist)
 #### 工具函数
+- [cookie设置](#setcookiecookie)
 - [时间格式化](#todate)
-- [cookie设置](#setcookie)
-- [cookie获取](#getcookie)
-- [storage设置](#setstorage)
-- [storage获取](#getstorage)
+- [cookie获取](#getcookiecookie)
+- [storage设置](#setstoragestorage)
+- [storage获取](#getstoragestorage)
 - [千分位格式化](#tothousands)
 - [对象的深浅拷贝](#objectcopy)
 - [对象的合并](#objectmerge)
@@ -176,56 +176,33 @@ wanado.isEmptyList(value)
 > ### `setCookie`设置cookie
 
 ```js
-// key 属性
-// vlaue 值
-// option 配置项
-wanado.setCookie({key, value, option})
-
-wanado.setCookie({key: 'token', value: '1357924680', option: {'max-age': 40000}})
+wanado.setCookie('token', '1357924680')
+wanado.setCookie('token', '1357924680', {'max-age': 40000})
 ```
 
-> ### `getCookie`
-
-获取cookie
+> ### `getCookie`获取cookie
 
 ```js
-// key: String
 wanado.getCookie(key)
 ```
 
-> ### `setStorage`
-
-设置storage
+> ### `setStorage`设置storage
 
 ```js
-// key 属性
-// vlaue 值
-// option 配置项
-// {
-//   mode: 'local' || 'session' // 存储位置，默认local
-//   expire: 100000 存储时间，单位秒
-// }
-wanado.setStorage({key, value, option})
-
 wanado.setStorage('id',[1,2,3], {
   expire: 10000,
   mode: 'session'
 })
 ```
 
-> ### `getStorage`
-
-获取storage
+> ### `getStorage`获取storage
 
 ```js
-// key 属性
 wanado.setStorage(key)
 ```
 
 
-> ### `toDate`
-
-时间格式化函数
+> ### `toDate`时间格式化函数
 
 ```js
 // date: Date 毫秒数 || 日期格式 || 空（当前时间）
@@ -243,45 +220,37 @@ wanado.setStorage(key)
 // mm: 分钟（补0）
 // s: 秒（不补0）
 // ss: 秒（补0）
-wanado.toDate({target, format})
-
-wanado.toDate({target: '2018-3-3'}) // 默认格式
+wanado.toDate('2018-3-3') // 默认格式
 // 2018-03-03 00:00:00
 
-wanado.toDate({target: 1234567890, format: 'YY//MM!!DD hh::mm""ss'}) //格式化可自由组合（包括连接符）
+wanado.toDate({target: 1234567890, format: 'YY//MM!!DD hh::mm""ss'})
 // 1970//01!!15 14::56""07
 ```
 
-> ### `toThousands`
-
-千分位格式化
+> ### `toThousands`千分位格式化
 
 ```js
-// target: Number || String
-wanado.toThousands(target)
-
 wanado.toThousands('123123123')
 // 123,123,123
+wanado.toThousands('123123123.123123')
+// 123,123,123.123123
 
 ```
 
-> ### `objectCopy`
-
-数组或对象的拷贝
+> ### `objectCopy`数组或对象的拷贝
 
 ```js
-// target: Array || Object
-// type: 'deep' || 'shallow' 默认shallow
-wanado.objectCopy({target, type})
+wanado.objectCopy({ a: 1, b: 2, c: { aa: 11, bb: 22 } })
+wanado.objectCopy({ a: 1, b: 2, c: { aa: 11, bb: 22 } }, 'deep')
 ```
 
-> ### `objectMerge`
-
-合并对象并返回一个合并后的对象
+> ### `objectMerge`合并对象并返回一个合并后的对象
 
 ```js
-// target: Array 对象数组
-wanado.objectMerge({target})
+wanado.objectMerge([{ a: 1 }, { a: 2, b: 2 }, { a: 3, c: 3 }])
+// { a: 3, b: 2, c: 3 }
+wanado.objectMerge([{ a: 1 }, { a: 2, b: 2 }, { a: 3, c: 3 }], 'ahead')
+// { a: 1, b: 2, c: 3 }
 ```
 
 > ### `objectToQuery`
