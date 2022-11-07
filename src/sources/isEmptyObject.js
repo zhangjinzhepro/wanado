@@ -1,7 +1,7 @@
-import { isObject } from './isObject';
+import { isNotObject } from './isNotObject';
 
 export const isEmptyObject = (data) => {
-  if (!isObject(data)) {
+  if (isNotObject(data)) {
     throw new Error('请传入一个对象');
   }
   return !(Object.keys(data).length);

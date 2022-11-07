@@ -1,4 +1,3 @@
-import { isUndefined } from './isUndefined';
 import { queryToObject } from './queryToObject';
 
 /**
@@ -7,9 +6,6 @@ import { queryToObject } from './queryToObject';
  * @returns {*}
  */
 export const getCookie = (key) => {
-  if (isUndefined(key)) {
-    throw Error('参数错误');
-  }
-  const cookieObj = queryToObject({ target: document.cookie, limit: ';' });
+  const cookieObj = queryToObject(document.cookie, ';');
   return cookieObj[key];
 };

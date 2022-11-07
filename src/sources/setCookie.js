@@ -1,4 +1,3 @@
-import { isUndefined } from './isUndefined';
 import { objectToQuery } from './objectToQuery';
 
 /**
@@ -6,14 +5,11 @@ import { objectToQuery } from './objectToQuery';
  * @param key
  * @param value
  * @param option
- * @returns {Error|*}
+ * @returns {undefined}
  */
 // eslint-disable-next-line consistent-return
-export const setCookie = ({ key, value, options = {} }) => {
-  if (isUndefined(key)) {
-    return Error('请传入key');
-  }
-  // 解析option
-  const optionStr = objectToQuery({ target: options, limit: ';' });
+export const setCookie = (key, value, options = {}) => {
+  // options配置
+  const optionStr = objectToQuery(options, ';');
   document.cookie = `${key}=${encodeURIComponent(value)};${optionStr}`;
 };
