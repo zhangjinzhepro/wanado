@@ -1,5 +1,6 @@
 # wanado
 一个简单js函数库，目的是简化js数据操作
+
 ## 使用npm安装
 `npm install wanado`
 
@@ -7,7 +8,11 @@
 `import wanado from 'wanado'`
 
 ### 按需加载,需安装`eslint-plugin-import`
-`import { isString } from 'wanado/src/sources/isString'`
+```js
+import { isString } from 'wanado/src/sources/isString'
+import { checkType } from 'wanado/src/sources/checkType'
+// ...
+```
 
 ## 索引
 
@@ -32,6 +37,7 @@
 - [isEmptyValue](#isemptyvalue)
 - [isEmptyObject](#isemptyobject)
 - [isEmptyList](#isemptylist)
+
 ### 数组操作
 - [数组插入](#listinsert)
 - [数组删除](#listremove)
@@ -39,22 +45,28 @@
 - [数组排序（支持复杂对象排序）](#sort)
 - [对象数组分组](#listgroupkey)
 - [伪数组转数组](#toarray)
+
 ### 对象操作
 - [对象的合并](#objectmerge)
 - [对象的深浅拷贝](#objectcopy)
 - [对象转query](#objecttoqueryquery)
+
 ### 时间函数
 - [时间格式化](#todate)
+
 ### 字符串操作
 - [千分位格式化](#tothousands)
 - [query转对象](#querytoobjectquery)
+
 ### 缓存操作
 - [cookie设置](#setcookiecookie)
 - [cookie获取](#getcookiecookie)
 - [storage设置](#setstoragestorage)
 - [storage获取](#getstoragestorage)
+
 ### 二进制文件操作
 - [下载二进制文件](#downloadblob)
+
 ### 正则匹配
 - [匹配邮箱](#isemail)
 - [匹配手机号码](#isphonenum)
