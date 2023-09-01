@@ -1,3 +1,5 @@
+<h1 style="color: red">本项目已停止更新，请使本项目的ts版本<a href="https://www.npmjs.com/package/speedfix">SpeedFix</a></h1>
+
 # wanado
 一个简单js函数库，目的是简化js数据操作
 
